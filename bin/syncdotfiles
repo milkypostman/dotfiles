@@ -17,52 +17,5 @@ for host in "$@"; do
 + /.inputrc
 + /.bashrc
 + /.dircolors
-+ /.bash_completion
-+ /.bash_completion.d
-+ /.bash_completion.d/**
-
-+ /.screenrc
-+ /.gitshrc
-+ /.gitconfig
-+ /.tigrc
-+ /.irbrc
-
-+ /.vimrc
-+ /.gvimrc
-+ /.vim
-- /.vim/sessions
-- /.vim/plugin/netrwPlugin.vim
-- /.vim/plugin/ruby_debugger.vim
-- /.vim/swap
-- /.vim/.netrwhist
-- /.vim/tmp
-+ /.vim/backup
-- /.vim/backup/**
-+ /.vim/**
-
-+ /bin
-+ /bin/ack
-+ /bin/lgrep
-+ /bin/git-big-object-report
-+ /bin/git-cut-branch
-+ /bin/git-find-object
-+ /bin/git-grab
-+ /bin/git-ls-object-refs
-+ /bin/git-ignore
-+ /bin/git-object-deflate
-+ /bin/git-push-log
-+ /bin/git-sh
-+ /bin/git-incoming
-+ /bin/git-outgoing
-+ /bin/gzball
-+ /bin/headers
-+ /bin/markdown
-+ /bin/memcached-tool
-+ /bin/sync-home
-+ /bin/tinyurl
-+ /bin/rbconfig
-+ /bin/rbdev
-+ /bin/addr
-+ /bin/gendiff
 FILES
 done
