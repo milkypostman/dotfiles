@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# DIRS="maxedges domsetdemands enqlog minedges dominatingset"
+DIRS="simulation"
+
+if [[ $# > 0 ]]; then
+    DIRS="$@"
+fi
+
+for d in $DIRS; do
+    echo "Pushing $d..."
+    BASENAME=`basename $d`
+    DIRNAME=`dirname $d`
+    rsync -avzu $HOME/uihc/$DIRNAME/$BASENAME milano:uihc/$DIRNAME/
+    echo "done."
+done

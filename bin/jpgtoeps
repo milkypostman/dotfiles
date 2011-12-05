@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for fn in $@; do
+	fnpfx=${fn%.*}
+	convert $fn eps3:${fnpfx}.eps
+done
