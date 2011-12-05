@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# Time-stamp: <2011-11-17 00:46:15 (dcurtis)>
+
+$EDITOR $@ && if [ $(uname -s) == "Darwin" ]; then
+	osascript -e 'tell application "iTerm" to activate'
+fi

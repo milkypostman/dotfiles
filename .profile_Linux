@@ -1,0 +1,2 @@
+#-- environment
+export PYTHONPATH=$HOME/usr/lib/python2.6/site-packages:$HOME/src/networkx:$HOME/src/compepi

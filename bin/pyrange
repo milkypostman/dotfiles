@@ -1,0 +1,37 @@
+#!/usr/bin/python
+
+# Local Variables:
+# mode: python
+# End:
+
+import sys
+import optparse
+
+parser = optparse.OptionParser()
+parser.add_option("-d", dest="decimals", type="int", default=None, help="Number of decimal places to print")
+parser.add_option("-s", dest="sep", type="str", default=" ", help="separator")
+(options, args) = parser.parse_args()
+
+f_str = "{0:.{1}f}"
+if options.decimals is None:
+    f_str = "{0}"
+
+
+if len(args) < 3:
+    sys.exit(-1)
+
+def frange(start, end, step=1):
+    cur = start
+
+    if end > start and step > 0:
+        while cur < end:
+            yield cur
+            cur += step
+    elif start > end and step < 0:
+        while cur > end:
+            yield cur
+            cur += step
+
+
+sys.stdout.write(options.sep.join(
+    (f_str.format(i, options.decimals) for i in frange(eval(args[0]), eval(args[1]), len(args) > 2 and eval(args[2]) or 1))))

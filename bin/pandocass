@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <markdown file>"
+    exit -1
+fi
+
+basename=${1%.*}
+
+
+/Users/dcurtis/.cabal/bin/pandoc  -s --mathjax -t latex -o ${basename}.tex ${1} && pdflatex ${basename}

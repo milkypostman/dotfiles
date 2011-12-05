@@ -1,0 +1,51 @@
+#!/usr/bin/ruby
+
+require "tmpdir"
+require "rubygems"
+
+gem "kramdown", ">=0.12.0"
+require "kramdown"
+
+DIRECTORY = "/Users/dcurtis/Dropbox/Notational"
+TODO = File.join(DIRECTORY, "Todo")
+
+oldstdout = $stdout
+$stdout = File.new(File.join(Dir::tmpdir, "todo.html"), 'w')
+
+puts """
+<html>
+<head>
+  <title>All Files</title>
+</head>
+<body>
+"""
+
+def outputDirectory(dir, h=1, pfx="")
+  glob = Dir.glob(File.join(dir, "*"))
+  dirs = glob.reject { |f| File.file?(f) } .sort
+  glob.reject{ |f| File.directory?(f) }.each{ |f|
+    puts "<h%d>%s%s</h%d>" % [h, pfx, File.basename(f, File.extname(f)), h]
+    puts Kramdown::Document.new(IO.read(f)).to_html
+  }
+
+  dirs.reject{|d| File.basename(d)!='Todo'}.each do |d|
+    puts "<hr style='border: 0px;height: 1px;color=#000;background-color:#000;' />"
+    puts "<h%d>%s%s</h%d>" % [h, pfx, File.basename(d), h]
+    outputDirectory(d, h+1)
+  end
+
+  dirs.reject{|d| File.basename(d)=='Todo'}.each do |d|
+    puts "<hr style='border: 0px;height: 1px;color=#000;background-color:#000;' />"
+    puts "<h%d>%s%s</h%d>" % [h, pfx, File.basename(d), h]
+    outputDirectory(d, h+1)
+  end
+end
+
+outputDirectory(TODO)
+
+puts """
+</body>
+</html>
+"""
+
+oldstdout.puts($stdout.path)

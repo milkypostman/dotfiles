@@ -1,0 +1,72 @@
+#-- shell setup
+
+### prompt command to setup terminal title
+case $TERM in
+    screen*)
+		export PROMPT_COMMAND="if [[ -r $HOME/.screen_env ]]; then . $HOME/.screen_env; fi; $PROMPT_COMMAND"
+    ;;
+esac
+
+### prompt
+# if [[ $TERM == screen ]]; then
+PS1='\[\e[0;32m\]\u\[\e[0;35m\]@\[\e[0;32m\]\h:\[\e[1;34m\]\w \[\e[1;33m\]> \[\e[0m\]'
+# else
+    # PS1='\[\e[0;32m\]\u\[\e[0;35m\]@\[\e[0;32m\]\h:\[\e[1;34m\]\w \[\e[1;33m\]» \[\e[0m\]'
+# fi
+
+if [[ $TERM == dumb ]]; then
+	#PS1="dcurtis@milano.cs.uiowa.edu:\${PWD}$ "
+    # PS1="|Pr0mPT|\${PWD}|\u@\H \w> "
+    PS1="\u@\H \w> "
+fi
+
+
+#-- aliases
+# screen
+#alias sb="screen -D -R daemons -c ~/.screenrc_daemons"
+alias sr='write_screen_variables ; screen -D -R $HOSTNAME'
+alias ls="ls --color"
+alias ll="ls -lah --color"
+alias la="ls -A --color"
+alias enqlog="enq qlog"
+
+alias ec="emacsclient -n"
+
+
+#-- functions
+
+### screen functions
+function write_screen_variables {
+	OUT=""
+	if [[ -n "$DISPLAY" ]]; then
+		OUT="export DISPLAY=\"$DISPLAY\"\n"
+	else
+		echo "unable to set DISPLAY variable"
+	fi
+	if [[ -n "$SSH_AUTH_SOCK" ]]; then
+		OUT="${OUT}\
+export SSH_AUTH_SOCK=\"$SSH_AUTH_SOCK\"\n\
+"
+	else
+		echo "SSH_AUTH_KEY not set"
+	fi
+	if [[ -n "$SSH_CLIENT" ]]; then
+		OUT="${OUT}\
+export SSH_CLIENT=\"$SSH_CLIENT\"\n\
+export SSH_TTY=\"$SSH_TTY\"\n\
+export SSH_CONNECTION=\"$SSH_CONNECTION\"\n\
+"
+	else
+		echo "not an SSH remote shell"
+	fi
+	echo -e $OUT > $HOME/.screen_env
+}
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+

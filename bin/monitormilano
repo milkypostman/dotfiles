@@ -1,0 +1,30 @@
+#!/bin/bash
+
+
+cd ~/uihc/simulation/
+
+PREVDONE=$(ssh milano -- "lsq | grep ended | wc -l && rmq 2>/dev/null")
+growlnotify -m "$PREVDONE jobs previously completed" Starting to Monitor Milano Jobs
+
+while true; do
+	DATA="$(ssh milano -- "lsq && rmq" | sed '1d')"
+	BLAH=0
+	if [ -z "$DATA" ]; then
+		growlnotify -t "Milano" -m "All jobs have finished"
+		break
+	else
+		echo "$DATA" | grep ended | while read line; do
+			MSG=$(echo "$line" | awk '{ for(i=7; i<=NF; i++) {printf("%s ", $i)} printf("\n") }')
+			TITLE=$(echo "$line" | awk '{ print $1 }')
+			growlnotify -m "$MSG" Milano Job $TITLE Completed
+		done
+		if [[ -n `echo "$DATA" | grep ended` ]]; then
+		    mpull $@
+            ./mergy.py
+		fi
+	fi
+	sleep 5
+done
+cd -
+# we'll have pull the last time anyways.
+# pulluihcmilano

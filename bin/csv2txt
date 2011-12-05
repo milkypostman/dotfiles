@@ -1,0 +1,51 @@
+#!/usr/bin/python
+
+"""
+Simple converter for CSV files.  There are two builtin pre-defined formats.
+
+Usage: csv2txt [options]
+
+Options:
+  -h, --help    show this help message and exit
+  -c COLS       Columns to print (given in the order to be printed)
+  -s SEPARATOR  New separator (default: ,)
+  -b BEGIN      Start of line string
+  -e END        End of line string
+  --pmwiki      PMWiki Format
+  --latex       LaTeX Tabular Format
+"""
+
+import csv
+import sys
+import optparse
+
+parser = optparse.OptionParser()
+parser.add_option("-c", dest="cols", type="string", default="", help="Columns to print (given in the order to be printed)")
+parser.add_option("-s", dest="separator", type="string", default=",", help="New separator (default: ,)")
+parser.add_option("-b", dest="begin", type="string", default="", help="Start of line string")
+parser.add_option("-e", dest="end", type="string", default="", help="End of line string")
+parser.add_option("--pmwiki", dest="pmwiki", action="store_true", default=False, help="PMWiki Format")
+parser.add_option("--latex", dest="latex", action="store_true", default=False, help="LaTeX Tabular Format")
+(options, args) = parser.parse_args()
+
+if options.cols:
+    options.cols = eval(options.cols)
+
+if options.latex:
+    options.begin = ""
+    options.end = "\\\\"
+    options.separator = "&"
+elif options.pmwiki:
+    options.begin = "|| "
+    options.end = " ||"
+    options.separator = " || "
+
+inp = csv.reader(sys.stdin)
+
+for line in inp:
+    if options.cols:
+        #line = list(line)
+        #print line[0]
+        #print type(options.cols)
+        line = [line[col] for col in options.cols]
+    sys.stdout.write(options.begin + options.separator.join(line) + options.end + "\n")

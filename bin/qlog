@@ -1,0 +1,59 @@
+#!/bin/bash
+
+LOGDIR=$HOME/uihc/enqlog
+EXT=log
+
+#### Don't change after this line
+
+TIMESTAMP=0
+PFX=""
+until [ -z "$1" ]; do
+    case $1 in
+	-o )
+	    shift
+	    LOGDIR=$1
+	    ;;
+	-t )
+	    TIMESTAMP=1
+	    ;;
+	-p )
+	    shift
+	    PFX=$1
+	    ;;
+	-e )
+	    shift
+	    EXT=$1
+	    ;;
+	-- )
+	    shift
+	    break
+	    ;;
+	* )
+	    break
+	    ;;
+    esac
+    shift
+done
+
+EXEC=$@
+
+if [ -z $PFX ]; then
+    LOGFN=$(basename $1)
+else
+    LOGFN=$PFX
+fi
+shift
+LOGFN="$LOGFN $@"
+LOGFN=${LOGFN// /}
+LOGFN=${LOGFN//.\//}.$EXT
+DATETIME=$(date +%Y%m%d%H%M)
+
+if (( $TIMESTAMP == 1 )); then
+    LOGFN=$LOGFN.$DATETIME
+fi
+
+    
+echo "$EXEC > \"${LOGDIR}/${LOGFN}\""
+$EXEC > "${LOGDIR}/${LOGFN}"
+# $@ > "${LOGDIR}/${LOGFN// /}.log.${DATETIME}"
+
