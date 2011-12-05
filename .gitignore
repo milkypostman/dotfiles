@@ -74,7 +74,6 @@
 /webapps
 /.vim-fuf-data/VERSION
 /.slime
-/.gitconfig
 /.oh-my-zsh/
 /.mindmeister2md
 /.policyguirc

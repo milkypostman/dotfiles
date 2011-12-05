@@ -1,0 +1,26 @@
+[alias]
+	ca = commit -a
+	st = status
+	sm = submodule
+[user]
+	name = Donald Ephraim Curtis
+	email = dcurtis@milkbox.net
+[color]
+	branch = auto
+	status = auto
+	diff = auto
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+	insteadOf = "github:"
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+[core]
+	editor = editor_wrapper_git
