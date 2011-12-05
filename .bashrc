@@ -95,9 +95,6 @@ ff () { find ./ -name '*'"$@"'*' ; }
 # recursive grep
 rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 
-# get configuration for this host
-if [ -r $HOME/.bashrc_$(hostname -s) ]; then source $HOME/.bashrc_$(hostname -s); fi
-
 # get configuration for this machine type
 if [ -r $HOME/.bashrc_$(uname -s) ]; then source $HOME/.bashrc_$(uname -s); fi
 
