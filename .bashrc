@@ -100,3 +100,6 @@ if [ -r $HOME/.bashrc_$(hostname -s) ]; then source $HOME/.bashrc_$(hostname -s)
 
 # get configuration for this machine type
 if [ -r $HOME/.bashrc_$(uname -s) ]; then source $HOME/.bashrc_$(uname -s); fi
+
+# get local configuration
+if [ -r $HOME/.bashrc_local ]; then source $HOME/.bashrc_local; fi
