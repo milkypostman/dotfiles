@@ -30,6 +30,15 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+
+## aliases
+alias d='dirs'
+alias p='pushd'
+alias o='popd'
+alias la="ls -A"
+alias rm='rm -v'
+alias cp='cp -v'
+
 ## environment
 export PATH=$HOME/bin:$PATH
 
