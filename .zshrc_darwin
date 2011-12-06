@@ -1,0 +1,24 @@
+## enable virtualenvwrapper
+# export WORKON_HOME=$HOME/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+# export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+# source /usr/local/bin/virtualenvwrapper.sh
+
+## aliases
+alias ec="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
+alias etags="~/Applications/Emacs.app/Contents/MacOS/bin/etags"
+
+## environment
+export EDITOR=emacsclient
+
+## virtualenv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+source $HOME/.virtualenv/bin/activate
+
+## pip
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+## enable rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
