@@ -9,7 +9,7 @@ alias ec="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
 alias etags="~/Applications/Emacs.app/Contents/MacOS/bin/etags"
 
 ## environment
-export EDITOR=emacsclient
+export EDITOR=/usr/local/bin/emacsclient
 
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
