@@ -30,29 +30,13 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-## aliases
-alias ec="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
-alias etags="~/Applications/Emacs.app/Contents/MacOS/bin/etags"
-
-
 ## environment
-export EDITOR=emacsclient
 export PATH=$HOME/bin:$PATH
 
 
-## enable virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-## pip
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-
-## use default environment
-workon default
-
-## enable rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+## zshrc for system type and local
+for zz in ".zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ".zshrc_local"; do
+    if [ -r $HOME/$zz ]; then source $HOME/$zz; fi
+done
 
 

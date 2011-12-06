@@ -33,7 +33,7 @@ buildnotes () {
         multimarkdown $1 -o /Volumes/USERS/FACULTY/DCurtis/${1/%.md/.html}
     fi
 }
-           
+
 
 # setup development for research
 uihcdev () {
@@ -73,26 +73,31 @@ function ocd {
 
 
 ## enable virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-export VIRTUAL_ENV_DISABLE_PROMPT=1
+# export VIRTUAL_ENV_DISABLE_PROMPT=1
+# export WORKON_HOME=$HOME/.virtualenvs
+# if [ -z "$VIRTUALENVWRAPPER_PYTHON" ]
+# then
+#     source /usr/local/bin/virtualenvwrapper.sh
+# fi
+# workon default
 
+source $HOME/.virtualenv/bin/activate
 
-## pip
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
+# ## pip
+# export PIP_RESPECT_VIRTUALENV=true
+# export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-# pip bash completion start
-_pip_completion()
-{
-    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
-                   COMP_CWORD=$COMP_CWORD \
-                   PIP_AUTO_COMPLETE=1 $1 ) )
-}
-complete -o default -F _pip_completion pip
+# # pip bash completion start
+# _pip_completion()
+# {
+#     COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+#                    COMP_CWORD=$COMP_CWORD \
+#                    PIP_AUTO_COMPLETE=1 $1 ) )
+# }
+# complete -o default -F _pip_completion pip
 
 ## use default environment
-workon default
+
 
 ## enable rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
