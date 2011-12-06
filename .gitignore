@@ -79,3 +79,5 @@
 /.policyguirc
 /.ssh/config
 /.bashrc_local
+/.zcompdump
+/.zsh-update
