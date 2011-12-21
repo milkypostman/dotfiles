@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kolo"
+ZSH_THEME="milkoulaj"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -47,5 +47,4 @@ export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
 for zz in ".zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ".zshrc_local"; do
     if [ -r $HOME/$zz ]; then source $HOME/$zz; fi
 done
-
 
