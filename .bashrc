@@ -50,8 +50,12 @@ fi
 
 #-- aliases
 alias kablamo="lsq | cut -f6 | cut -d\  -f3-4 | cut -d_ -f1 | sort | uniq"
-alias ll="ls -lah"
-alias la="ls -A"
+alias l='ls -la'
+alias la='ls -A'
+alias ll='ls -l'
+alias ls='ls -G'
+alias lsa='ls -lah'
+alias sl=ls
 alias rm='rm -v'
 alias cp='cp -v'
 alias less='less -R'
