@@ -22,9 +22,9 @@ ZSH_THEME="milk"
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plungins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm zsh-syntax-highlighting)
+plugins=(git rvm zsh-syntax-highlighting lein brew)
 
 source $ZSH/oh-my-zsh.sh
 
