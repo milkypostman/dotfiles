@@ -48,3 +48,14 @@ for zz in ".zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ".zshrc_local"; do
     if [ -r $HOME/$zz ]; then source $HOME/$zz; fi
 done
 
+## virtualenv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -s "$HOME/.virtualenv/bin/activate" ]] && source "$HOME/.virtualenv/bin/activate"
+
+## pip
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+## enable rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
