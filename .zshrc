@@ -43,19 +43,23 @@ alias cp='cp -v'
 export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
 
 
-## zshrc for system type and local
-for zz in ".zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ".zshrc_local"; do
-    if [ -r $HOME/$zz ]; then source $HOME/$zz; fi
-done
-
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -s "$HOME/.virtualenv/bin/activate" ]] && source "$HOME/.virtualenv/bin/activate"
+[[ -s "$HOME/.virtualenv/bin/activate" ]] && \
+    source "$HOME/.virtualenv/bin/activate"
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-## enable rvm
+## rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+## system-based
+[[ -s "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
+    source "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')"
+
+## local config
+[[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
+
 
