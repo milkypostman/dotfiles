@@ -1,4 +1,4 @@
-
+#-*- mode: sh -*-
 
 ## aliases
 alias ec="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
