@@ -90,3 +90,6 @@
 /345
 /455
 /.heroku/credentials
+/.cache/motd.legal-displayed
+/.sudo_as_admin_successful
+/.aptitude/config
