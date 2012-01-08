@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/Users/dcurtis/.cabal/bin/pandoc --mathml -S
+/Users/dcurtis/.cabal/bin/pandoc --mathml -S $@
 
