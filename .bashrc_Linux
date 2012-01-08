@@ -30,7 +30,7 @@ alias ll="ls -lah --color"
 alias la="ls -A --color"
 alias enqlog="enq qlog"
 
-alias ec="emacsclient -n"
+alias ec="emacsclient -nw"
 
 
 #-- functions

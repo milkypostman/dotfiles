@@ -21,6 +21,3 @@
 	pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
-
-[core]
-	editor = editor_wrapper_git
