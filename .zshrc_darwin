@@ -1,12 +1,11 @@
 #-*- mode: sh -*-
 
 ## aliases
-alias ec="$HOME/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n"
-alias etags="$HOME/Applications/Emacs.app/Contents/MacOS/bin/etags"
+alias ec="/usr/local/bin/emacsclient -n"
 
 
 ## environment
-export EDITOR="$HOME/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+export EDITOR="/usr/local/bin/emacsclient"
 export GIT_EDITOR="$HOME/bin/editor_wrapper_git"
 
 
