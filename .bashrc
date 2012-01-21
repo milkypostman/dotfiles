@@ -99,8 +99,9 @@ ff () { find ./ -name '*'"$@"'*' ; }
 # recursive grep
 rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 
-# get configuration for this machine type
-if [ -r $HOME/.bashrc_$(uname -s) ]; then source $HOME/.bashrc_$(uname -s); fi
+## system-based
+[[ -s "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
+    source "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')"
 
-# get local configuration
-if [ -r $HOME/.bashrc_local ]; then source $HOME/.bashrc_local; fi
+## local config
+[[ -s "$HOME/.bashrc_local" ]] && source "$HOME/.bashrc_local"
