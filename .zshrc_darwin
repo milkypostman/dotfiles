@@ -3,6 +3,7 @@
 ## aliases
 alias ec="/usr/local/bin/emacsclient"
 alias ecn="/usr/local/bin/emacsclient -n"
+alias ecnw="/usr/local/bin/emacsclient -nw"
 
 
 ## environment
