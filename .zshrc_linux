@@ -1,7 +1,5 @@
 #-*- mode: sh -*-
 
-## aliases
-alias ec="emacsclient -nw"
 
 ## environment
 export EDITOR=vim

@@ -41,6 +41,9 @@ alias o='popd'
 alias la="ls -A"
 alias rm='rm -v'
 alias cp='cp -v'
+alias ec="emacsclient"
+alias ecn="emacsclient -n"
+alias ecnw="emacsclient -nw"
 
 ## environment
 export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH

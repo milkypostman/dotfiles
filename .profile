@@ -1,5 +1,4 @@
 export EDITOR=vim
-#export GIT_EDITOR="mvim -f"
 export PATH=$HOME/bin:$PATH
 export CLICOLOR=1
 
