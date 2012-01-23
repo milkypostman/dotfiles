@@ -95,3 +95,5 @@
 /.aptitude/config
 /bin/lein
 /.dbshell
+/.profile_local
+/.zshenv_local
