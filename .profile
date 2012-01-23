@@ -1,5 +1,5 @@
 export EDITOR=vim
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.cabal/bin:$HOME/.lein/bin:$HOME/bin:$PATH
 export CLICOLOR=1
 
 #export LSCOLORS=dxfxcxdxbxegedabagacad
@@ -14,3 +14,4 @@ export CLICOLOR=1
 # if this shell is interactive load the bashrc
 case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
 
+export PATH=$HOME/fun:$PATH
