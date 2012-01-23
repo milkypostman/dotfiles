@@ -45,10 +45,6 @@ alias ec="emacsclient"
 alias ecn="emacsclient -n"
 alias ecnw="emacsclient -nw"
 
-## environment
-export PATH=$HOME/bin:$HOME/.cabal/bin:$PATH
-
-
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s "$HOME/.virtualenv/bin/activate" ]] && \
@@ -67,5 +63,4 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
-
 
