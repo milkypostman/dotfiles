@@ -31,8 +31,8 @@
 /.pip
 /.pylint.d
 /.rvm
-/.ssh/id_dsa
-/.ssh/id_dsa.pub
+/.ssh/id_rsa
+/.ssh/id_rsa.pub
 /.ssh/known_hosts
 /.subversion/README.txt
 /.subversion/servers
@@ -95,3 +95,5 @@
 /.aptitude/config
 /bin/lein
 /.dbshell
+/.profile_local
+/.zshenv_local
