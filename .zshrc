@@ -45,6 +45,12 @@ alias ec="emacsclient"
 alias ecn="emacsclient -n"
 alias ecnw="emacsclient -nw"
 
+magit() {
+    runmagit="(let ((default-directory \"$(pwd)\")) \
+(call-interactively 'magit-status))"
+    emacsclient --eval "$runmagit"
+}
+
 umask 0077
 
 sudo() {
