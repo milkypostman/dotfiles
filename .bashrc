@@ -82,6 +82,17 @@ for i in {1..17}; do
     alias m${i}="cdssh m${i}"
 done
 
+umask 0077
+
+sudo() {
+    local ORIGINAL_UMASK=$(umask)
+    umask 0022
+    command sudo "$@"
+    umask $ORIGINAL_UMASK
+}
+
+
+
 
 #-- functions
 
