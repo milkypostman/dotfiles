@@ -45,6 +45,21 @@ alias ec="emacsclient"
 alias ecn="emacsclient -n"
 alias ecnw="emacsclient -nw"
 
+magit() {
+    runmagit="(let ((default-directory \"$(pwd)\")) \
+(call-interactively 'magit-status))"
+    emacsclient --eval "$runmagit"
+}
+
+umask 0077
+
+sudo() {
+    local ORIGINAL_UMASK=$(umask)
+    umask 0022
+    command sudo "$@"
+    umask $ORIGINAL_UMASK
+}
+
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s "$HOME/.virtualenv/bin/activate" ]] && \

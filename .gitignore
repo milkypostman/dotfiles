@@ -97,3 +97,5 @@
 /.dbshell
 /.profile_local
 /.zshenv_local
+/.recentf~
+/.vimgolf/config.json
