@@ -103,5 +103,5 @@ source $HOME/.virtualenv/bin/activate
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # enable bash completion
-[[ -f `brew --prefix`/etc/bash_completion ]] &&  source `brew --prefix`/etc/bash_completion
+[[ -f `which brew` ]] && [[ -f `brew --prefix`/etc/bash_completion ]] &&  source `brew --prefix`/etc/bash_completion
 
