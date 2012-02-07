@@ -27,7 +27,13 @@ ZSH_THEME="milk"
 
 # Which plungins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm zsh-syntax-highlighting lein brew)
+plugins=(git zsh-syntax-highlighting lein)
+
+case $(uname -s) in
+Darwin)
+plugins+=(brew)
+;;
+esac
 
 source $ZSH/oh-my-zsh.sh
 
