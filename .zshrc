@@ -31,7 +31,7 @@ plugins=(git zsh-syntax-highlighting lein)
 
 case $(uname -s) in
 Darwin)
-plugins+=(brew)
+plugins+=(brew rvm)
 ;;
 esac
 
