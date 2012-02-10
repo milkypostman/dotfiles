@@ -99,9 +99,6 @@ source $HOME/.virtualenv/bin/activate
 ## use default environment
 
 
-## enable rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # enable bash completion
 [[ -f `which brew` ]] && [[ -f `brew --prefix`/etc/bash_completion ]] &&  source `brew --prefix`/etc/bash_completion
 

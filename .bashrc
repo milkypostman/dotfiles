@@ -114,9 +114,13 @@ ff () { find ./ -name '*'"$@"'*' ; }
 # recursive grep
 rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 
+## enable rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 ## system-based
 [[ -s "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
     source "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')"
 
 ## local config
 [[ -s "$HOME/.bashrc_local" ]] && source "$HOME/.bashrc_local"
+
