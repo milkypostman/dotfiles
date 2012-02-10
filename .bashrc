@@ -61,6 +61,10 @@ alias cp='cp -v'
 alias less='less -R'
 alias more=less
 
+alias ec="emacsclient"
+alias ecn="emacsclient -n"
+alias ecnw="emacsclient -nw"
+
 alias d='dirs'
 alias p='pushd'
 alias o='popd'
