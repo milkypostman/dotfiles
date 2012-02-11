@@ -26,16 +26,6 @@ HISTSIZE=1000
 
 PAGER=less
 
-PATH=$PATH:$HOME/src/compepi/uihc/generators
-PATH=$PATH:$HOME/src/compepi/uihc/scripts
-PATH=$PATH:$HOME/src/compepi/wescrub/contactgraph
-
-suihc=$HOME/src/compepi/uihc
-duihc=$HOME/uihc
-graphs=$HOME/uihc/graphs
-scripts=$HOME/src/compepi/uihc/scripts
-generators=$HOME/src/compepi/uihc/generators
-
 
 shopt -s histappend
 
@@ -71,13 +61,6 @@ alias o='popd'
 
 # ssh enabling x11 support
 alias sshx11="ssh -o ForwardX11=yes"
-
-
-# too much hitting tab
-alias spol="cd ~/src/compepi/uihc/policy/"
-alias seval="cd ~/src/compepi/uihc/policy/evaluation/"
-alias upol="cd ~/uihc/policy/"
-
 
 alias milano="cdssh milano"
 alias vinci="cdssh vinci"
