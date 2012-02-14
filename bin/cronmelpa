@@ -1,0 +1,14 @@
+#!/bin/bash
+
+MELPADIR=$HOME/melpa
+WEBROOT=$HOME/webapps/melpa
+
+
+PATH=$HOME/.cabal/bin:$HOME/usr/bin:$HOME/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+${MELPADIR}/melpa
+
+rsync -avz --delete ${MELPADIR}/packages ${MELPADIR}/html/* ${WEBROOT}/
