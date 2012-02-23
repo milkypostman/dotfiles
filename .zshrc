@@ -85,3 +85,12 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
+
+if [[ $TERM == "dumb" ]]; then
+    PS1='%(?..[%?])%!:%~%# '
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+fi
