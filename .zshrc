@@ -51,6 +51,8 @@ alias ec="emacsclient"
 alias ecn="emacsclient -n"
 alias ecnw="emacsclient -nw"
 
+alias cscience="ssh cscience"
+
 magit() {
     runmagit="(let ((default-directory \"$(pwd)\")) \
 (call-interactively 'magit-status))"
