@@ -104,7 +104,8 @@ rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s $HOME/.virtualenvs/bin/activate ]] && source $HOME/.virtualenv/bin/activate
 
-
+## pip
+export PIP_RESPECT_VIRTUALENV=true
 
 ## system-based
 [[ -s "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
