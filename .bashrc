@@ -100,6 +100,13 @@ rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 ## enable rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+## enable virtual python environment
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -s $HOME/.virtualenvs/bin/activate ]] && source $HOME/.virtualenv/bin/activate
+
+## pip
+export PIP_RESPECT_VIRTUALENV=true
+
 ## system-based
 [[ -s "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
     source "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')"
