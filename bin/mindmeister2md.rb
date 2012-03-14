@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #--
 # mindmeister2md.rb -- Convert MindMeister maps to Markdown
-# 
+#
 # Copyright (c) 2011 Donald Ephraim Curtis <dcurtis@milkbox.net>
 # Copyright (c) 2011 Brett Terpstra
 #
@@ -44,7 +44,7 @@ end
 def rest_call(param)
   url = URI::HTTP.build({:host => $host, :path => "/services/rest", :query => param})
   Net::HTTP.get_response(url).body
-end  
+end
 
 def auth_valid? (param, secret)
   valparam = param.merge({"method" => "mm.auth.checkToken"})
@@ -60,8 +60,8 @@ def join_param (param)
 end
 
 def api_sig (param, secret)
-  URI.escape(join_param(param) + 
-             "&api_sig=" + 
+  URI.escape(join_param(param) +
+             "&api_sig=" +
              Digest::MD5.hexdigest(secret + param.sort.join))
 end
 
@@ -83,7 +83,7 @@ end
 
 class String
   # Removes HTML tags from a string. Allows you to specify some tags to be kept.
-  def strip_html( allowed = [] )    
+  def strip_html( allowed = [] )
     re = if allowed.any?
            Regexp.new(
                       %(<(?!(\\s|\\/)*(#{
@@ -278,14 +278,14 @@ if ARGV.empty?
   intpad = Math::log10(menu.length).to_i+1
   menu.each_with_index { |item, idx|
     titlepad = " " * (maxtitle - item.title.length + 2)
-    
+
     # just makes the formatting nice
     idxstr = "%#{intpad}d" % (idx+1)
     STDERR.puts "#{idxstr}: #{item.title} #{titlepad} ( #{item.modified} ) [ #{item.key} ]"
   }
-  
+
   sel = 0
-  
+
   while !sel =~ /^\d+$/ || sel.to_i <= 0 || sel.to_i > menu.length
     STDERR.print "Selection: "
     sel = STDIN.gets
