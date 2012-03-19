@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DIR=${1:-.}
+
+# find ${1} -exec chown :www-data {} \;
+find ${DIR} -exec chmod go-rwx {} \;
+find ${DIR} -type d -exec chmod go+x {} \;
+find ${DIR} -type f -exec chmod go+r {} \;
