@@ -23,17 +23,25 @@ CSV.foreach(ARGV[0]) { |data|
   mapping[data[0]] = data[2].to_i
 }
 
-total = 0
+totals = []
+scores = []
 
 tagline = /^%([A-Z]+)%/
 
+total = 0
 open(ARGV[1]).each_line do |line|
   m = tagline.match(line)
   if m then
     if m[1] == "TOTAL" then
       puts "Total: " + total.to_s
+      score = 100 + total
+      puts "Score: " + score.to_s
+      totals << total
+      scores << score
+      total = 0
     else
       total += mapping[m[1]]
+      puts line.sub(tagline, mapping[m[1]].to_s)
     end
   else
     puts line
@@ -41,5 +49,7 @@ open(ARGV[1]).each_line do |line|
 
 end
 
-p mapping
+
+p totals
+p scores
 
