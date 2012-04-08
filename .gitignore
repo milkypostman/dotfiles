@@ -112,3 +112,4 @@
 /.Rhistory
 /.subversion/auth
 .cronenv
+/.ipython
