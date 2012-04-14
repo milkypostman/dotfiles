@@ -52,6 +52,8 @@ alias ecn="emacsclient -n"
 alias ecnw="emacsclient -nw"
 
 alias cscience="ssh cscience"
+alias higgs="ssh higgs"
+alias milkbox="ssh milkbox.net"
 
 magit() {
     runmagit="(let ((default-directory \"$(pwd)\")) \
