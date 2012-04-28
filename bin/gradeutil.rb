@@ -25,6 +25,7 @@ CSV.foreach(ARGV[0]) { |data|
 
 totals = []
 scores = []
+late = nil
 
 tagline = /^%([A-Z]+)%/
 
@@ -35,10 +36,18 @@ open(ARGV[1]).each_line do |line|
     if m[1] == "TOTAL" then
       puts "Total: " + total.to_s
       score = 100 + total
-      puts "Score: " + score.to_s
+      if late then
+        puts "Score: " + score.to_s + " * .8 = " + (score * 0.8).to_s
+      else
+        puts "Score: " + score.to_s
+      end
       totals << total
       scores << score
+        late = nil
       total = 0
+    elsif m[1] == "LATE" then
+      puts "** submitted late **"
+      late = 1
     else
       total += mapping[m[1]]
       puts line.sub(tagline, mapping[m[1]].to_s)
