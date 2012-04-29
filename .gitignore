@@ -5,6 +5,7 @@
 /.Rhistory
 /.Trash
 /.Xauthority
+/.apdisk
 /.aptitude/config
 /.aspell*
 /.bashrc_local
@@ -100,6 +101,7 @@
 /bin/kod
 /bin/lein
 /bin/mate
+/coechive
 /dumps
 /git
 /local
