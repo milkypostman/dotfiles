@@ -41,6 +41,7 @@
 /.matplotlib
 /.mindmeister2md
 /.npm
+/.nx
 /.offlineimap
 /.offlineimaprc
 /.oh-my-zsh/
@@ -48,6 +49,7 @@
 /.policyguirc
 /.profile_local
 /.pylint.d
+/.qt
 /.recentf
 /.recentf~
 /.rvm
