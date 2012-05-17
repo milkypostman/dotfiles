@@ -80,7 +80,6 @@ sudo() {
 
 
 
-
 #-- functions
 
 # ssh to current

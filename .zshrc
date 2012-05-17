@@ -55,6 +55,9 @@ alias cscience="ssh cscience"
 alias higgs="ssh higgs"
 alias milkbox="ssh milkbox.net"
 
+alias activate_stonesoup="pythonbrew use 2.6.5 && pythonbrew venv use stonesoup"
+
+
 magit() {
     runmagit="(let ((default-directory \"$(pwd)\")) \
 (call-interactively 'magit-status))"
@@ -90,16 +93,6 @@ export PIP_RESPECT_VIRTUALENV=true
 
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
-
-
-activate() {
-    VIRTUALENV_BASE="${HOME}/.virtualenv"
-    if [ $# -le 0 ]; then
-        set -- default
-    fi
-    echo ${VIRTUALENV_BASE}/$1
-    . ${VIRTUALENV_BASE}/$1/bin/activate
-}
 
 
 if [[ $TERM == "dumb" ]]; then
