@@ -77,7 +77,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 ## rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
