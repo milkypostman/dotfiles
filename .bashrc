@@ -101,8 +101,8 @@ rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## enable virtual python environment
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -s $HOME/.virtualenv/bin/activate ]] && source $HOME/.virtualenv/bin/activate
+# export VIRTUAL_ENV_DISABLE_PROMPT=1
+[[ -s $HOME/.virtualenv/default/bin/activate ]] && source $HOME/.virtualenv/default/bin/activate
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true

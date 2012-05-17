@@ -72,8 +72,8 @@ sudo() {
 
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -s "$HOME/.virtualenv/bin/activate" ]] && \
-    source "$HOME/.virtualenv/bin/activate"
+[[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
+    source "$HOME/.virtualenv/default/bin/activate"
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true
@@ -88,6 +88,16 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
+
+
+activate() {
+    VIRTUALENV_BASE="${HOME}/.virtualenv"
+    if [ $# -le 0 ]; then
+        set -- default
+    fi
+    echo ${VIRTUALENV_BASE}/$1
+    . ${VIRTUALENV_BASE}/$1/bin/activate
+}
 
 
 if [[ $TERM == "dumb" ]]; then
