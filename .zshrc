@@ -70,6 +70,12 @@ sudo() {
     umask $ORIGINAL_UMASK
 }
 
+## rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+## pythonbrew
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
@@ -77,9 +83,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true
-
-## rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 ## system-based
 [[ -s "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \

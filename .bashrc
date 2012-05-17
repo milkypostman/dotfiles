@@ -100,6 +100,9 @@ rgrep () { find ./ -exec grep -H "$@" {} \; ; }
 ## enable rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+## pythonbrew
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
+
 ## enable virtual python environment
 # export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s $HOME/.virtualenv/default/bin/activate ]] && source $HOME/.virtualenv/default/bin/activate
