@@ -70,7 +70,6 @@
 /.vimgolf/config.json
 /.viminfo
 /.vimrc
-/.virtualenv
 /.zcompdump
 /.zsh-update
 /.zshenv_local
@@ -117,3 +116,4 @@
 /uihc
 /usr
 /webapps
+/.virtualenv*
