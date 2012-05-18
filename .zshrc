@@ -73,9 +73,6 @@ sudo() {
 ## rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-## pythonbrew
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
