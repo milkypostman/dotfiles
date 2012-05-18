@@ -55,7 +55,7 @@ alias cscience="ssh cscience"
 alias higgs="ssh higgs"
 alias milkbox="ssh milkbox.net"
 
-alias activate_stonesoup="pythonbrew use 2.6.5 && pythonbrew venv use stonesoup"
+alias activatestonesoup="activate stonesoup"
 
 
 magit() {
@@ -76,10 +76,22 @@ sudo() {
 ## rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+## pythonz
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 [[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
     source "$HOME/.virtualenv/default/bin/activate"
+
+activate() {
+    VIRTUALENV_BASE="${HOME}/.virtualenv"
+    if [ $# -le 0 ]; then
+        set -- default
+    fi
+    echo ${VIRTUALENV_BASE}/$1
+    . ${VIRTUALENV_BASE}/$1/bin/activate
+}
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true
