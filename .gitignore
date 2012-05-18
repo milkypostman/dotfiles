@@ -116,4 +116,5 @@
 /uihc
 /usr
 /webapps
-/.pythonbrew
+/.pythonz
+/.virtualenv
