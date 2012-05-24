@@ -118,3 +118,6 @@
 /webapps
 /.pythonz
 /.virtualenv
+/.octave_hist
+/.serverauth.15945
+/.serverauth.79491
