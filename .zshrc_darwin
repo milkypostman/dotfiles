@@ -8,4 +8,5 @@ export EDITOR="/usr/local/bin/emacsclient"
 export GIT_EDITOR="$HOME/bin/editor_wrapper_git"
 
 
+alias blender="/Applications/Blender/blender.app/Contents/MacOS/blender"
 
