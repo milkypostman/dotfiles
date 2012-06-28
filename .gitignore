@@ -123,3 +123,5 @@
 /.serverauth.79491
 /.config/hub
 /.cookies.txt
+/.gitk
+/.tilemill/config.json
