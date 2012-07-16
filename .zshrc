@@ -111,7 +111,7 @@ export PIP_RESPECT_VIRTUALENV=true
 
 
 if [[ $TERM == "dumb" ]]; then
-    PS1='%(?..[%?])%!:%~%# '
+    PS1='%F{blue}%n@%m%f %B%F{cyan}%~%F{white} > %b%f%k'
     unsetopt zle
     unsetopt prompt_cr
     unsetopt prompt_subst
