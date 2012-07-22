@@ -55,8 +55,14 @@ alias cscience="ssh cscience"
 alias higgs="ssh higgs"
 alias milkbox="ssh milkbox.net"
 
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias startpostgres="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias stoppostgres="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+alias startmysql="mysql.server start"
+alias stopmysql="mysql.server stop"
+
+alias startmongo="mongod run --config /usr/local/etc/mongod.conf &!"
+alias stopmongo="killall mongod"
 
 
 magit() {
