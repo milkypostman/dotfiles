@@ -1,4 +1,4 @@
-export PATH=$HOME/.cabal/bin:$HOME/.lein/bin:$HOME/bin:$PATH
+export PATH=$HOME/.cabal/bin:$HOME/.lein/bin:$HOME/bin:/usr/local/bin:$PATH
 export PYTHONPATH=$HOME/src/compepi
 export GNUTERM=x11
 
