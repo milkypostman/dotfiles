@@ -50,6 +50,7 @@ alias cp='cp -v'
 alias ec="emacsclient"
 alias ecn="emacsclient -n"
 alias ecnw="emacsclient -nw"
+alias emacsclient="emacsclient -a vim"
 
 alias cscience="ssh cscience"
 alias higgs="ssh higgs"
@@ -62,6 +63,11 @@ alias startmysql="mysql.server start"
 alias stopmysql="mysql.server stop"
 
 alias startmongo="mongod run --config /usr/local/etc/mongod.conf &!"
+alias melpa="cd $HOME/src/melpa"
+alias questionmonkey="cd $HOME/src/questionmonkey"
+alias compepi="cd $HOME/src/compepi"
+alias data="cd $HOME/data"
+
 alias stopmongo="killall mongod"
 
 
