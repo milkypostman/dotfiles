@@ -14,6 +14,8 @@
 /.cabal
 /.cache/motd.legal-displayed
 /.config/fish
+/.config/hub
+/.cookies.txt
 /.cups
 /.cvspass
 /.darcs
@@ -26,13 +28,16 @@
 /.fontconfig
 /.gem
 /.ghc
+/.gitk
 /.gvimrc
 /.heroku/credentials
 /.htoprc
 /.idlerc
 /.ido.last
+/.ievms
 /.ipe
 /.ipython
+/.jline-reply.history
 /.lein
 /.lesshst
 /.links2
@@ -40,8 +45,10 @@
 /.m2
 /.matplotlib
 /.mindmeister2md
+/.netrc
 /.npm
 /.nx
+/.octave_hist
 /.offlineimap
 /.offlineimaprc
 /.oh-my-zsh/
@@ -49,11 +56,15 @@
 /.policyguirc
 /.profile_local
 /.pylint.d
+/.pythonz
+/.qgis
 /.qt
 /.recentf
 /.recentf~
 /.rvm
 /.screen_env
+/.serverauth.15945
+/.serverauth.79491
 /.slime
 /.smex-items
 /.ssh/authorized_keys
@@ -65,11 +76,13 @@
 /.subversion/auth
 /.subversion/servers
 /.sudo_as_admin_successful
+/.tilemill/config.json
 /.vim
 /.vim-fuf-data/VERSION
 /.vimgolf/config.json
 /.viminfo
 /.vimrc
+/.virtualenv
 /.zcompdump
 /.zsh-update
 /.zshenv_local
@@ -83,7 +96,6 @@
 /Applications
 /Applications (Parallels)
 /Coe
-/data
 /Desktop
 /Development
 /Documents
@@ -104,6 +116,7 @@
 /bin/lein
 /bin/mate
 /coechive
+/data
 /dumps
 /git
 /local
@@ -117,13 +130,3 @@
 /uihc
 /usr
 /webapps
-/.pythonz
-/.virtualenv
-/.octave_hist
-/.serverauth.15945
-/.serverauth.79491
-/.config/hub
-/.cookies.txt
-/.gitk
-/.tilemill/config.json
-/.ievms
