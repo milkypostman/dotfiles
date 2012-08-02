@@ -74,7 +74,9 @@ alias stopmongo="killall mongod"
 magit() {
     runmagit="(let ((default-directory \"$(pwd)\")) \
 (call-interactively 'magit-status))"
-    emacsclient --eval "$runmagit"
+    emacsclient --eval "$runmagit" && \
+        [[ $(uname -s | tr '[A-Z]' '[a-z]') == "darwin" ]] && \
+        osascript -e 'tell application "Emacs" to activate'
 }
 
 umask 0077
