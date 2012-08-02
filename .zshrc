@@ -37,8 +37,6 @@ esac
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-
 
 ## aliases
 alias d='dirs'
@@ -63,12 +61,12 @@ alias startmysql="mysql.server start"
 alias stopmysql="mysql.server stop"
 
 alias startmongo="mongod run --config /usr/local/etc/mongod.conf &!"
+alias stopmongo="killall mongod"
+
 alias melpa="cd $HOME/src/melpa"
 alias questionmonkey="cd $HOME/src/questionmonkey"
 alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
-
-alias stopmongo="killall mongod"
 
 
 magit() {
