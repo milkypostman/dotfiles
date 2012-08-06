@@ -1,7 +1,20 @@
 [alias]
 	ca = commit -a
+	cm = commit -m
+	cam = commit -am
+	co = checkout
+	br = branch -v
 	st = status
 	sm = submodule
+	fe = fetch
+	pl = pull
+	pr = pull --rebase
+	k = !gitk
+	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	h = !git --no-pager log origin/master..HEAD --abbrev-commit --pretty=oneline
+	unstage = reset HEAD --
+	find = !sh -c 'git ls-tree -r --name-only HEAD | grep --color $1' -
+	cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d
 [user]
 	name = Donald Curtis
 	email = dcurtis@milkbox.net
