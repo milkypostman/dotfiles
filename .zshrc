@@ -60,7 +60,7 @@ alias stoppostgres="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias startmysql="mysql.server start"
 alias stopmysql="mysql.server stop"
 
-alias startmongo="mongod run --config /usr/local/etc/mongod.conf &!"
+alias startmongo="mongod run --logpath /usr/local/var/mongodb/mongodb.log --config /usr/local/etc/mongod.conf --fork"
 alias stopmongo="killall mongod"
 
 alias melpa="cd $HOME/src/melpa"
