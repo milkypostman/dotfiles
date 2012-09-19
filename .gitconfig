@@ -36,3 +36,6 @@
 	insteadOf = "gist:"
 [github]
 	user = milkypostman
+[include]
+	path = ~/.gitlocal
+
