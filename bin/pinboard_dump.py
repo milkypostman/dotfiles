@@ -35,8 +35,11 @@ try:
     <dl>'''
 
     for item in items:
-        res += '<dt><a href="%s">%s</a></dt>\n' % \
-        (item['href'].encode('utf-8'), item['description'].encode('utf-8'))
+        res += '<dt><a href="{0}">{1} {2}</a></dt>\n'.format(
+            item['href'].encode('utf-8'),
+            item['description'].encode('utf-8'),
+            ' '.join(['@{0}'.format(tag) for tag in
+                      item['tags'].encode('utf-8').split()]))
     res += '</dl>'
 
     open(os.environ['HOME']+'/.bookmarks.html', 'w').write(res)
