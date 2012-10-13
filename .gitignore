@@ -1,5 +1,6 @@
 .DS_Store
 .cronenv
+/.heroku
 /.*-history*
 /.*_history*
 /.Rhistory
@@ -132,3 +133,4 @@
 /114
 /.gitlocal
 /.bookmarks.html
+/.jline-clojure.main.history
