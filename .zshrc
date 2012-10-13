@@ -94,8 +94,6 @@ sudo() {
 
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-[[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
-    source "$HOME/.virtualenv/default/bin/activate"
 
 stonesoup() {
     activate stonesoup
@@ -106,6 +104,10 @@ stonesoup() {
 activate() {
     VIRTUALENV_BASE="${HOME}/.virtualenv"
     if [ $# -le 0 ]; then
+        if [[ -s "./venv/bin/activate" ]]; then
+            source "./venv/bin/activate"
+            return
+        fi
         set -- default
     fi
     . ${VIRTUALENV_BASE}/$1/bin/activate
@@ -133,3 +135,6 @@ fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
+    source "$HOME/.virtualenv/default/bin/activate"
