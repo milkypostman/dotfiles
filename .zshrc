@@ -101,6 +101,12 @@ stonesoup() {
     cd $HOME/src/stonesoup
 }
 
+mulchn() {
+    cd $HOME/src/mulchn
+    activate
+    export MULCHN_SETTINGS=devconfig
+}
+
 activate() {
     VIRTUALENV_BASE="${HOME}/.virtualenv"
     if [ $# -le 0 ]; then
