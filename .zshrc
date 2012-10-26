@@ -140,7 +140,7 @@ if [[ $TERM == "dumb" ]]; then
 fi
 
 ### For CoffeeScript
-export PATH="/usr/local/share/npm/bin/:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
 
 
 ### Added by the Heroku Toolbelt
