@@ -1,6 +1,5 @@
 .DS_Store
 .cronenv
-/.heroku
 /.*-history*
 /.*_history*
 /.Rhistory
@@ -11,6 +10,7 @@
 /.aspell*
 /.bashrc_local
 /.bazaar
+/.bookmarks.html
 /.bzr.log
 /.cabal
 /.cache/motd.legal-displayed
@@ -30,7 +30,9 @@
 /.gem
 /.ghc
 /.gitk
+/.gitlocal
 /.gvimrc
+/.heroku
 /.heroku/credentials
 /.htoprc
 /.idlerc
@@ -38,6 +40,7 @@
 /.ievms
 /.ipe
 /.ipython
+/.jline-clojure.main.history
 /.jline-reply.history
 /.lein
 /.lesshst
@@ -88,6 +91,7 @@
 /.zsh-update
 /.zshenv_local
 /.zshrc_local
+/114
 /115
 /325
 /345
@@ -102,6 +106,7 @@
 /Documents
 /Downloads
 /Dropbox
+/Google Drive
 /ILOG
 /Library
 /Movies
@@ -130,7 +135,3 @@
 /uihc
 /usr
 /webapps
-/114
-/.gitlocal
-/.bookmarks.html
-/.jline-clojure.main.history
