@@ -135,3 +135,7 @@
 /uihc
 /usr
 /webapps
+/.mongorc.js
+/.Rapp.history
+/.enthought
+/node_modules
