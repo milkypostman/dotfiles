@@ -30,9 +30,9 @@ ZSH_THEME="milk"
 plugins=(git django zsh-syntax-highlighting lein)
 
 case $(uname -s) in
-Darwin)
-plugins+=(brew rvm)
-;;
+    Darwin)
+        plugins+=(brew rvm)
+        ;;
 esac
 
 source $ZSH/oh-my-zsh.sh
@@ -68,6 +68,13 @@ alias questionmonkey="cd $HOME/src/questionmonkey"
 alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
 
+realpath() {
+    for FN in $@; do
+        if [[ -e $FN ]]; then
+            echo `pwd`/${FN}
+        fi
+    done
+}
 
 magit() {
     runmagit="(let ((default-directory \"$(pwd)\")) \
