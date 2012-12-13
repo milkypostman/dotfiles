@@ -145,8 +145,8 @@ def create_symlinks():
     for dest, src in SYMLINKS:
         if not src.startswith("/"): src = path.join(HOME, src)
         dest = path.join(HOME, dest)
-        symlink(src, dest)
-        print("{0} -> {1}".format(src, dest))
+        if symlink(src, dest) > 0:
+            print("{0} -> {1}".format(src, dest))
 
 def cleanup_old():
     """
