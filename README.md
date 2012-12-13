@@ -10,6 +10,13 @@ Personal dotfiles. Bootstrap/sync script written in [Python](http://python.org)
     bin/dotsync
     
 
+## Updating
+
+Assuming you have `$HOME/bin` in your `PATH`, 
+
+    dotsync
+
+
 ## Configuration
     
 In the `dotsync` script there are two variables you may want to modify.
