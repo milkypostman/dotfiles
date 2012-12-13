@@ -155,8 +155,8 @@ def cleanup_old():
 
     for fn in listdir(HOME):
         if not path.exists(fn):
-            print("broken: {0}".format(fn))
-
+            os.unlink(fn)
+            print("x {0}".format(fn))
 
 
 if __name__ == '__main__':
