@@ -20,6 +20,11 @@ fi
 export EDITOR='nano'
 export VISUAL='nano'
 export PAGER='less'
+export ALTERNATE_EDITOR=vim
+
+export PYTHONPATH=$HOME/src/compepi:$HOME/src/word_cloud
+export GNUTERM=x11
+
 
 #
 # Language
@@ -79,6 +84,8 @@ path=(
   /usr/local/{bin,sbin}
   /usr/{bin,sbin}
   /{bin,sbin}
+  $HOME/bin
+  $HOME/{.cabal,.lein}/bin
   $path
 )
 
@@ -98,3 +105,11 @@ if [[ -d "$TMPDIR" ]]; then
   fi
 fi
 
+
+
+## system-based
+[[ -s "$HOME/.zshenv_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
+    source "$HOME/.zshenv_$(uname -s | tr '[A-Z]' '[a-z]')"
+
+## local config
+[[ -s "$HOME/.zshenv_local" ]] && source "$HOME/.zshenv_local"

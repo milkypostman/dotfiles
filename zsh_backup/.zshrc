@@ -45,9 +45,9 @@ alias o='popd'
 alias la="ls -A"
 alias rm='rm -v'
 alias cp='cp -v'
-alias ec="emacsclient"
-alias ecn="emacsclient -n"
-alias ecnw="emacsclient -nw"
+alias ec="emacsclient -a vim"
+alias ecn="emacsclient -a vim -n"
+alias ecnw="emacsclient -a vim -nw"
 alias emacsclient="emacsclient -a vim"
 
 alias cscience="ssh cscience"
