@@ -168,7 +168,10 @@ if __name__ == '__main__':
     print("")
 
     with message("Activating virtualenv"):
-        activate_virtualenv()
+        try:
+            activate_virtualenv()
+        except IOError:
+            print("error.")
 
     print("")
     print("Linking files...")
