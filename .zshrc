@@ -40,25 +40,17 @@ fpath=(${HOME}/.zsh_functions $fpath)
 autoload -U curpath magit
 autoload -Uz mulchn stonesoup
 
+
 ## rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 
-if [[ $TERM == "dumb" ]]; then
-    PS1='%F{blue}%n@%m%f %B%F{cyan}%~%F{white} > %b%f%k'
-    unsetopt zle
-    unsetopt prompt_cr
-    unsetopt prompt_subst
-    # unfunction precmd
-    # unfunction preexec
-fi
-
 ### For CoffeeScript
 export PATH="/usr/local/share/npm/bin:$PATH"
 
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
 
 ## pip
 export PIP_RESPECT_VIRTUALENV=true
