@@ -1,0 +1,8 @@
+## magit --- function to load magit in cwd
+
+runmagit="(let ((default-directory \"$(pwd)\")) \
+(call-interactively 'magit-status))"
+emacsclient --eval "$runmagit" && \
+    [[ $(uname -s | tr '[A-Z]' '[a-z]') == "darwin" ]] && \
+    osascript -e 'tell application "Emacs" to activate'
+

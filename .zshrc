@@ -1,11 +1,6 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+### .zshrc
 
-# Source Prezto.
+## prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -44,65 +39,14 @@ sudo() {
     umask $ORIGINAL_UMASK
 }
 
-## functions
-realpath() {
-    for FN in $@; do
-        if [[ -e $FN ]]; then
-            echo `pwd`/${FN}
-        fi
-    done
-}
+fpath=(${HOME}/.zsh_functions $fpath)
 
-magit() {
-    runmagit="(let ((default-directory \"$(pwd)\")) \
-(call-interactively 'magit-status))"
-    emacsclient --eval "$runmagit" && \
-        [[ $(uname -s | tr '[A-Z]' '[a-z]') == "darwin" ]] && \
-        osascript -e 'tell application "Emacs" to activate'
-}
+## functions
+autoload -U curpath magit
+autoload -Uz mulchn stonesoup
 
 ## rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-## pythonz
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
-
-## virtualenv
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-stonesoup() {
-    activate stonesoup
-    export DJANGO_SETTINGS_MODULE=stonesoup.development_settings
-    cd $HOME/src/stonesoup
-}
-
-mulchn() {
-    activate mulchn
-    cd $HOME/src/mulchn
-    export MULCHN_SETTINGS=devconfig.py
-}
-
-activate() {
-    VIRTUALENV_BASE="${HOME}/.virtualenv"
-    if [ $# -le 0 ]; then
-        if [[ -s "./venv/bin/activate" ]]; then
-            source "./venv/bin/activate"
-            return
-        fi
-        set -- default
-    fi
-    . ${VIRTUALENV_BASE}/$1/bin/activate
-}
-
-## pip
-export PIP_RESPECT_VIRTUALENV=true
-
-## system-based
-[[ -s "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
-    source "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')"
-
-## local config
-[[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
 
 if [[ $TERM == "dumb" ]]; then
@@ -121,5 +65,23 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-[[ -s "$HOME/.virtualenv/default/bin/activate" ]] && \
-    source "$HOME/.virtualenv/default/bin/activate"
+## pip
+export PIP_RESPECT_VIRTUALENV=true
+
+## virtualenv
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+VIRTUALENV_BASE="${HOME}/.virtualenv"
+activate() {
+    if [ $# -le 0 ]; then
+        set -- default
+    fi
+    . ${VIRTUALENV_BASE}/$1/bin/activate
+}
+activate
+
+## system-based
+[[ -s "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
+    source "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')"
+
+## local config
+[[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"

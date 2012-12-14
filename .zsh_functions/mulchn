@@ -1,0 +1,7 @@
+### mulchn --- development setup for mulchn
+
+activate mulchn
+cd $HOME/src/mulchn
+export MULCHN_SETTINGS=devconfig.py
+
+

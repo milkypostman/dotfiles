@@ -1,0 +1,8 @@
+## utility functions
+for FN in $@; do
+    if [[ -e $FN ]]; then
+        echo `pwd`/${FN}
+    fi
+done
+
+
