@@ -4,13 +4,16 @@ from __future__ import print_function
 
 from contextlib import contextmanager
 from os import path
-from subprocess import check_output as cmd
 import glob
 import logging
 import os
 import sys
 import subprocess
 import shutil
+try:
+    from subprocess import check_output as cmd
+except ImportError:
+    from subprocess import check_call as cmd
 
 log = logging.getLogger('dotfiles')
 
