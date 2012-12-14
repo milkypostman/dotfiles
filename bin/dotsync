@@ -146,7 +146,11 @@ def create_symlinks():
     """
 
     for dest, src in SYMLINKS:
-        if not src.startswith("/"): src = path.join(__home, src)
+        if not src.startswith("/"):
+            src = path.join(__home, src)
+
+        if not path.exists(src): continue
+
         dest = path.join(__home, dest)
         if symlink(src, dest) > 0:
             print("{0} -> {1}".format(src, dest))
