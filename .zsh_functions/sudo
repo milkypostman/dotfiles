@@ -1,0 +1,6 @@
+### sudo --- special sudo function to ignore user umask
+
+local ORIGINAL_UMASK=$(umask)
+umask 0022
+command sudo "$@"
+umask $ORIGINAL_UMASK

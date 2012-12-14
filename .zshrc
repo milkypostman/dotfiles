@@ -30,14 +30,9 @@ alias melpa="cd $HOME/src/melpa"
 alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
 
+
 ## umask
 umask 0077
-sudo() {
-    local ORIGINAL_UMASK=$(umask)
-    umask 0022
-    command sudo "$@"
-    umask $ORIGINAL_UMASK
-}
 
 fpath=(${HOME}/.zsh_functions $fpath)
 
