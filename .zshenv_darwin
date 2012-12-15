@@ -1,2 +1,6 @@
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 export PATH=/usr/texbin:$PATH
+
+## arduino
+export ARDUINO_DIR=/Applications/Arduino.app/Contents/Resources/Java
+export ARDMK_DIR=$HOME/src/Arduino-Makefile
