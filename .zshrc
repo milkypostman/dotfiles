@@ -31,10 +31,13 @@ alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
 
 
+fpath=(${HOME}/.zsh_functions $fpath)
+
+
 ## umask
 umask 0077
+autoload -U sudo
 
-fpath=(${HOME}/.zsh_functions $fpath)
 
 ## functions
 autoload -U curpath magit
