@@ -2,6 +2,6 @@
 
 activate mulchn
 cd $HOME/src/mulchn
-export MULCHN_SETTINGS=dev_config.py
+export MULCHN_CONFIG=dev_config.py
 
 
