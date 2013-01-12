@@ -70,7 +70,7 @@ activate() {
 activate
 
 ## perl5 (requires local::lib installed)
-eval $(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)
+[[ -s "$HOME/.perl5" ]] && eval $(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)
 
 ## system-based
 [[ -s "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
