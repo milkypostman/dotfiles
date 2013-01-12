@@ -39,5 +39,5 @@
 [include]
 	path = ~/.gitlocal
 
-[push]
-	default = simple
+# [push]
+# 	default = simple
