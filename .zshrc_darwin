@@ -4,7 +4,7 @@
 
 
 ## environment
-export EDITOR="/usr/local/bin/emacsclient"
+export EDITOR="/usr/local/bin/emacsclient -a vim"
 export GIT_EDITOR="$HOME/bin/editor_wrapper"
 
 
