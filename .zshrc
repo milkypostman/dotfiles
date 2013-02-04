@@ -1,5 +1,7 @@
 ### .zshrc
 
+fpath=(${HOME}/.zsh_functions $fpath)
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -30,8 +32,6 @@ alias melpa="cd $HOME/src/melpa"
 alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
 
-
-fpath=(${HOME}/.zsh_functions $fpath)
 
 
 ## umask
