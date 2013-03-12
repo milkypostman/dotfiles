@@ -1,0 +1,7 @@
+### crcrime --- cedar rapids crime map
+
+activate crcrime
+cd $HOME/src/crcrime
+export DATABASE_URL="postgres://localhost/crcrime"
+
+

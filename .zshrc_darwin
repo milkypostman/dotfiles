@@ -1,12 +1,10 @@
 #-*- mode: sh -*-
 
 ## aliases
-
+alias e="${HOME}/bin/editor_wrapper"
 
 ## environment
-export EDITOR="/usr/local/bin/emacsclient -a vim"
-export GIT_EDITOR="$HOME/bin/editor_wrapper"
+export GIT_EDITOR="${HOME}/bin/editor_wrapper"
 
 
 alias blender="/Applications/Blender/blender.app/Contents/MacOS/blender"
-

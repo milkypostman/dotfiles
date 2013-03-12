@@ -124,3 +124,5 @@ export PIP_RESPECT_VIRTUALENV=true
 ## local config
 [[ -s "$HOME/.bashrc_local" ]] && source "$HOME/.bashrc_local"
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

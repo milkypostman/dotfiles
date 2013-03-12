@@ -28,7 +28,6 @@ alias stopmysql="mysql.server stop"
 alias startmongo="mongod run --logpath /usr/local/var/mongodb/mongodb.log --config /usr/local/etc/mongod.conf --fork"
 alias stopmongo="killall mongod"
 
-alias melpa="cd $HOME/src/melpa"
 alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
 
@@ -41,7 +40,7 @@ autoload -U sudo
 
 ## functions
 autoload -U curpath magit
-autoload -Uz mulchn stonesoup
+autoload -Uz mulchn stonesoup crcrime melpa
 
 
 ## rvm
@@ -78,3 +77,5 @@ activate
 
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

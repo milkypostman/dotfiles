@@ -1,0 +1,10 @@
+## melpa --- function to goto melpa directory and apply issues
+
+cd $HOME/src/melpa
+
+if [[ $# > 0 ]]; then
+    hub fetch origin
+    hub branch -D $1
+    hub checkout -b $1 origin/master
+    hub am https://github.com/milkypostman/melpa/pull/${1}
+fi
