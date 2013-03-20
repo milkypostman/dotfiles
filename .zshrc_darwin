@@ -1,8 +1,5 @@
 #-*- mode: sh -*-
 
-## aliases
-alias e="${HOME}/bin/editor_wrapper"
-
 ## environment
 export GIT_EDITOR="${HOME}/bin/editor_wrapper"
 

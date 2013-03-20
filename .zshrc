@@ -8,8 +8,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## aliases
+alias e="emacsclient -a vim -n"
 alias ec="emacsclient -a vim"
-alias ecn="emacsclient -a vim -n"
 alias ecnw="emacsclient -a vim -nw"
 alias emacsclient="emacsclient -a vim"
 
