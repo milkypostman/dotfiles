@@ -31,16 +31,18 @@ alias stopmongo="killall mongod"
 alias compepi="cd $HOME/src/compepi"
 alias data="cd $HOME/data"
 
-
-
 ## umask
 umask 0077
 autoload -U sudo
 
 
 ## functions
-autoload -U curpath magit
-autoload -Uz mulchn stonesoup crcrime melpa
+
+# autoload all function except prompts
+for FN in $HOME/.zsh_functions/* ; do
+    BFN=`basename ${FN}`
+    [[ ${BFN} != prompt_*_setup ]] && echo ${BFN} && autoload -Uz ${BFN}
+done
 
 
 ## rvm
