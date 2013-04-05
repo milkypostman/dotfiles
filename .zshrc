@@ -41,7 +41,7 @@ autoload -U sudo
 # autoload all function except prompts
 for FN in $HOME/.zsh_functions/* ; do
     BFN=`basename ${FN}`
-    [[ ${BFN} != prompt_*_setup ]] && echo ${BFN} && autoload -Uz ${BFN}
+    [[ ${BFN} != prompt_*_setup ]] && autoload -Uz ${BFN}
 done
 
 
