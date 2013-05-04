@@ -9,6 +9,8 @@ fi
 
 ## aliases
 alias e="emacsclient -a vim -n"
+alias s="ssh"
+alias c="cd"
 alias ec="emacsclient -a vim"
 alias ecnw="emacsclient -a vim -nw"
 alias emacsclient="emacsclient -a vim"

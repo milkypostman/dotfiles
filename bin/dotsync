@@ -18,9 +18,9 @@ except ImportError:
 log = logging.getLogger('dotfiles')
 
 SYMLINKS = (
-    ('114', 'Dropbox/Coe/2012f/FYS'),
-    ('115', 'Dropbox/Coe/2012f/115'),
-    ('325', 'Dropbox/Coe/2012f/325'),
+    ('115', 'Dropbox/Coe/2013s/115'),
+    ('345', 'Dropbox/Coe/2013s/345'),
+    ('705', 'Dropbox/Coe/2013s/705'),
     ('Coe', 'Dropbox/Coe'),
     ('src', 'Dropbox/Development'),
     ('Development', 'Dropbox/Development'),

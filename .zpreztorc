@@ -29,6 +29,7 @@ zstyle ':prezto:load' pmodule \
   'editor' \
   'history' \
   'git' \
+  'osx' \
   'directory' \
   'spectrum' \
   'utility' \
