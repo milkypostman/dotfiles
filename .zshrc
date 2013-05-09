@@ -63,7 +63,7 @@ export PIP_RESPECT_VIRTUALENV=true
 
 ## virtualenv
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-VIRTUALENV_BASE="${HOME}/.virtualenv"
+VIRTUALENV_BASE="${HOME}/.virtualenvs"
 activate() {
     if [ $# -le 0 ]; then
         set -- default
