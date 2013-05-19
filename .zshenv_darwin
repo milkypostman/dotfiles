@@ -8,3 +8,7 @@ export VISUAL="emacsclient -a vim"
 ## arduino
 export ARDUINO_DIR=/Applications/Arduino.app/Contents/Resources/Java
 export ARDMK_DIR=$HOME/src/Arduino-Makefile
+
+
+export PLAN9=/usr/local/Cellar/plan9port/20130320
+export PATH=$PATH:$PLAN9/bin
