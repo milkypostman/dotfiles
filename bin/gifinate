@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [[ $# < 1 ]]; then
+   echo "Requires an argument."
+   exit 1
+fi
+
+
+if [[ ! -r $1 ]]; then
+    echo "File not found: ${1}"
+    exit 2
+fi
+
+FN=${1}
+BASEFN=${1%.*}
+OUTFN=${BASEFN}.gif
+
+if [[ -e ${OUTFN} ]]; then
+    echo "File exists: ${OUTFN}"
+    exit 3
+fi
+
+echo "Generating ${OUTFN}..."
+
+
+rm -f gifinate-[0-9][0-9][0-9].png
+ffmpeg -i ${FN} -s 480x360 -r 3 gifinate-%03d.png
+convert -delay 3 -loop 0 gifinate-[0-9][0-9][0-9].png -coalesce -layers OptimizeTransparency ${OUTFN}
+# convert -delay 1 -loop 0 gifinate-[0-9][0-9][0-9].png -coalesce ${OUTFN}
+# rm -f gifinate-[0-9][0-9][0-9].png
+
+
+# ffmpeg -i test.mov -s 480x360 test-%03d.png
