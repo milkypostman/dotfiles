@@ -36,7 +36,7 @@ var programmingLayout = S.layout("programming", {
         S.op("focus", {'app': 'Emacs'})
     ]},
     'Emacs': { "operations": left["2/3"] },
-    'Google Chrome': { "operations": left["2/3"] },
+    'Google Chrome': { "operations": middle },
     'iTerm': { "operations": right["1/3"] }
 });
 
@@ -47,6 +47,6 @@ S.bind("4:cmd,shift,space", right["1/3"]);
 S.bind("5:cmd,shift,space", left["1/3"]);
 S.bind("6:cmd,shift,space", right["2/3"]);
 
-S.bind("y:cmd,shift,space", fullscreen);
-S.bind("j:cmd,shift,space", middle);
-S.bind("p:cmd,shift,space", S.op("layout", {"name": programmingLayout}));
+S.bind("e:cmd,shift,space", fullscreen);
+S.bind("h:cmd,shift,space", middle);
+S.bind("r:cmd,shift,space", S.op("layout", {"name": programmingLayout}));
