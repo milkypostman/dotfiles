@@ -16,6 +16,7 @@ Command for managing dotfiles.
 OPTIONS:
   -h	Show this message.
   -d	Set the destination directory.
+  -n    Dry run.
 
 CMD:
   link		Links all files that don't exist in the destination [default].
@@ -33,10 +34,34 @@ _existing() {
   done < <(git ls-files)
 }
 
+_unlink_subdirs() {
+  while read; do
+    declare subdir=$(dirname ${REPLY})
+    cd ${subdir}
+    _unlink $(basename ${subdir})
+    cd ${basedir}
+  done < <(find ${basedir} -mindepth 2 -maxdepth 2 -name .git)
+}
+
+_unlink() {
+  declare pfx=$1
+  while read; do
+    declare dstpath=$(echo ${destination}/${pfx}/${REPLY} | sed s#//*#/#g)
+    if [ -e $dstpath ]; then
+      echo -n "Unlinking ${dstpath}... "
+      if ! $dryrun; then
+	unlink "${dstpath}"
+        echo "done."
+      else
+        echo "dryrun."
+      fi
+    fi
+  done < <(git ls-files | grep -v .gitignore | grep -v .gitmodules | grep -v "^README")
+}
+
 _link_subdirs() {
   while read; do
     declare subdir=$(dirname ${REPLY})
-    echo ${subdir}
     cd ${subdir}
     _link $(basename ${subdir})
     cd ${basedir}
@@ -45,9 +70,8 @@ _link_subdirs() {
 
 _link() {
   declare pfx=$1
-  echo "Prefix $pfx"
   while read; do
-    declare dstpath=${destination}/${pfx}/${REPLY}
+    declare dstpath=$(echo ${destination}/${pfx}/${REPLY} | sed s#//*#/#g)
     declare srcpath=$(pwd -L)/${REPLY}
     declare dstdir=$(dirname ${dstpath})
     if [ ! -e $dstdir ]; then
@@ -68,7 +92,7 @@ _link() {
         echo "dryrun."
       fi
     fi
-  done < <(git ls-files)
+  done < <(git ls-files | grep -v .gitignore | grep -v .gitmodules | grep -v "^README")
 }
 
 while getopts "hnd:" OPTION; do
@@ -93,6 +117,10 @@ cmd=$1
 case $cmd in
   existing|e)
     _existing
+    ;;
+  unlink|u)
+    _unlink
+    _unlink_subdirs
     ;;
   link|l|*)
     _link
