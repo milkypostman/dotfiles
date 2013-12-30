@@ -31,7 +31,7 @@ _existing() {
     if [ ! "$dstpath" -ef "$srcpath" ]; then
       echo $dstpath
     fi
-  done < <(git ls-files)
+  done < <(git ls-files | grep -v .gitignore | grep -v .gitmodules | grep -v "^README")
 }
 
 _unlink_subdirs() {
@@ -128,4 +128,3 @@ case $cmd in
     cd ${basedir}
     ;;
 esac
-
