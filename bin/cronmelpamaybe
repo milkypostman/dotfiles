@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [[ `cat /home/dcurtis/webapps/melpa/updatemelpa.txt` == 1 ]] ; then
-	echo "Running cronmelpa"
-	/home/dcurtis/bin/cronmelpa
-fi
-
-echo "0" > /home/dcurtis/webapps/melpa/updatemelpa.txt

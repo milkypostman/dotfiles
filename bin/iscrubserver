@@ -1,7 +1,0 @@
-#!/bin/bash
-
-
-export DJANGO_SETTINGS_MODULE=iscrub.local_settings
-export PYTHONPATH=$HOME/Development/iScrub\ Trunk:$HOME/Development/iScrub\ Trunk/iscrub:$HOME/Development/iScrub\ Trunk/django-cms 
-echo $PYTHONPATH
-django-admin.py runserver
