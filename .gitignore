@@ -5,3 +5,5 @@
 /.cpan/Metadata
 /.cpan/FTPstats.yml
 /.subversion
+/.emacs.d/
+/.zprezto/
