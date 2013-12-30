@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd $HOME
+
+git clone git@github.com:milkypostman/dotfiles.git .dotfiles
+
+cd .dotfiles
+git clone git@github.com:milkypostman/dotemacs.git .emacs.d
+git clone --recursive git@github.com:sorin-ionescu/prezto.git .zprezto
+
+cd $HOME
+
+.dotfiles/bin/dotfiles l
