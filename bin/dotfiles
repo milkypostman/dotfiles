@@ -1,0 +1,103 @@
+#!/bin/bash
+
+cd $(dirname $(readlink "$0" || echo $0))/..
+basedir=$(pwd -L)
+
+
+declare destination=${HOME}
+declare dryrun=false
+
+_usage() {
+  cat <<EOF
+Usage: $0 [OPTIONS] CMD
+
+Command for managing dotfiles.
+
+OPTIONS:
+  -h	Show this message.
+  -d	Set the destination directory.
+
+CMD:
+  link		Links all files that don't exist in the destination [default].
+  existing	List existing files that are not already symlinked.
+EOF
+}
+
+_existing() {
+  while read; do
+    declare dstpath=${destination}/${REPLY}
+    declare srcpath=$(pwd -L)/${REPLY}
+    if [ ! "$dstpath" -ef "$srcpath" ]; then
+      echo $dstpath
+    fi
+  done < <(git ls-files)
+}
+
+_link_subdirs() {
+  while read; do
+    declare subdir=$(dirname ${REPLY})
+    echo ${subdir}
+    cd ${subdir}
+    _link $(basename ${subdir})
+    cd ${basedir}
+  done < <(find ${basedir} -mindepth 2 -maxdepth 2 -name .git)
+}
+
+_link() {
+  declare pfx=$1
+  echo "Prefix $pfx"
+  while read; do
+    declare dstpath=${destination}/${pfx}/${REPLY}
+    declare srcpath=$(pwd -L)/${REPLY}
+    declare dstdir=$(dirname ${dstpath})
+    if [ ! -e $dstdir ]; then
+      echo -n "Creating directory ${dstdir}... "
+      if ! $dryrun; then
+        mkdir -p ${dstdir}
+        echo "done."
+      else
+        echo "dryrun."
+      fi
+    fi
+    if [ ! -e $dstpath -a ! -L $dstpath  ]; then
+      echo -n "Linking ${dstpath} to ${srcpath}... "
+      if ! $dryrun; then
+        ln -s "${srcpath}" "${dstpath}"
+        echo "done."
+      else
+        echo "dryrun."
+      fi
+    fi
+  done < <(git ls-files)
+}
+
+while getopts "hnd:" OPTION; do
+  case $OPTION in
+    h)
+      _usage
+      exit 1
+      ;;
+    n)
+      dryrun=true
+      ;;
+    d)
+      destination=$OPTARG
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+cmd=$1
+
+case $cmd in
+  existing|e)
+    _existing
+    ;;
+  link|l|*)
+    _link
+    _link_subdirs
+    cd ${basedir}
+    ;;
+esac
+
