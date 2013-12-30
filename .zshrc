@@ -68,7 +68,7 @@ activate() {
     if [ $# -le 0 ]; then
         set -- default
     fi
-    . ${VIRTUALENV_BASE}/$1/bin/activate
+    [[ -s ${VIRTUALENV_BASE}/$1/bin/activate ]] && . ${VIRTUALENV_BASE}/$1/bin/activate
 }
 activate
 
