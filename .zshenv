@@ -27,6 +27,10 @@ export PYTHONPATH=$HOME/src/compepi:$HOME/src/word_cloud
 export GNUTERM=x11
 
 
+### Go
+export GOPATH=$HOME/go
+
+
 #
 # Language
 #
@@ -82,12 +86,14 @@ unset path_file
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  /usr/local/{bin,sbin}
-  /usr/{bin,sbin}
-  /{bin,sbin}
-  $HOME/bin
-  $HOME/{.cabal,.lein}/bin
-  $path
+    $GOPATH/bin
+    /usr/local/go/bin
+    /usr/local/{bin,sbin}
+    /usr/{bin,sbin}
+    /{bin,sbin}
+    $HOME/bin
+    $HOME/{.cabal,.lein}/bin
+    $path
 )
 
 for path_file in /etc/paths.d/*(.N); do
