@@ -11,15 +11,18 @@ fi
 alias e="emacsclient -a vim -n"
 alias s="ssh"
 alias c="cd"
-alias ec="emacsclient -a vim"
-alias ecnw="emacsclient -a vim -nw"
-alias emacsclient="emacsclient -a vim"
+alias e="emacsclient -n -a ''"
+alias et="emacsclient -t -a ''"
+alias ec="emacsclient -n -c -a ''"
 
+alias t='tmux'
+alias tl='tmux list-sessions'
+alias ta='tmux attach-session'
+alias tk='tmux kill-session -t'
+alias tmux_send_all='tmux list-windows | cut -d: -f1 | xargs -I\{\} tmux send-keys -t {} '
+
+alias rza='source ~/.zshrc && rehash'
 alias gst="git status"
-
-alias cscience="ssh cscience"
-alias higgs="ssh higgs"
-alias milkbox="ssh milkbox.net"
 
 alias startpostgres="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias stoppostgres="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
@@ -30,8 +33,6 @@ alias stopmysql="mysql.server stop"
 alias startmongo="mongod run --logpath /usr/local/var/mongodb/mongodb.log --config /usr/local/etc/mongod.conf --fork"
 alias stopmongo="killall mongod"
 
-alias compepi="cd $HOME/src/compepi"
-alias data="cd $HOME/data"
 
 ## umask
 umask 0077
