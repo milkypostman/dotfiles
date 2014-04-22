@@ -8,6 +8,5 @@ apt-get-undep() {
     sudo aptitude markauto $(apt-cache showsrc ${1} | grep Build-Depends | perl -p -e 's/(?:[\[(].+?[\])]|Build-Depends:|,|\|)//g')
 }
 
-
-## environment
-export EDITOR=vim
+export EDITOR="emacsclient -t -a ''"
+export VISUAL="emacsclient -t -a ''"
