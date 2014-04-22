@@ -48,10 +48,6 @@ for FN in $HOME/.zsh_functions/* ; do
 done
 
 
-## rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-
 ### For CoffeeScript
 export PATH="/usr/local/share/npm/bin:$PATH"
 
