@@ -48,6 +48,9 @@ for FN in $HOME/.zsh_functions/* ; do
 done
 
 
+## rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 ### For CoffeeScript
 export PATH="/usr/local/share/npm/bin:$PATH"
 
@@ -79,4 +82,4 @@ activate
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
