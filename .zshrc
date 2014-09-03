@@ -8,7 +8,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 ## aliases
-alias e="emacsclient -a vim -n"
+alias e='emacsclient -a vim -n'
 alias s="ssh"
 alias c="cd"
 alias e="emacsclient -n -a ''"
@@ -73,7 +73,7 @@ activate() {
 activate
 
 ## perl5 (requires local::lib installed)
-[[ -s "$HOME/.perl5" ]] && eval $(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)
+# [[ -s "$HOME/.perl5" ]] && eval $(perl -I$HOME/.perl5/lib/perl5 -Mlocal::lib=$HOME/.perl5)
 
 ## system-based
 [[ -s "$HOME/.zshrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \
@@ -82,4 +82,11 @@ activate
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
+<<<<<<< HEAD
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+=======
+## aws
+source /usr/local/share/zsh/site-functions/_aws
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+>>>>>>> update zsh aliases
