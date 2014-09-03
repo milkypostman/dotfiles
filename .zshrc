@@ -1,6 +1,6 @@
 ### .zshrc
 
-fpath=(${HOME}/.zsh_functions $fpath)
+fpath=(${HOME}/.zsh_functions /usr/local/share/zsh/site-functions $fpath)
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -82,11 +82,7 @@ activate
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
-<<<<<<< HEAD
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-=======
 ## aws
 source /usr/local/share/zsh/site-functions/_aws
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
->>>>>>> update zsh aliases
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
