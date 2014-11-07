@@ -7,21 +7,13 @@ Personal dotfiles. Bootstrap/sync script written in [Python](http://python.org)
 
     git clone https://github.com/milkypostman/dotfiles.git
     cd dotfiles
-    bin/dotsync
+    bin/dotfiles
     
 
 ## Updating
 
 Assuming you have `$HOME/bin` in your `PATH`, 
 
-    dotsync
+    dotfiles
 
-
-## Configuration
-    
-In the `dotsync` script there are two variables you may want to modify.
-
-* `IGNORE` --- specifies files in this repository to ignore.
-
-* `SYMLINKS` --- specify virtual symlinks that should be created.
 
