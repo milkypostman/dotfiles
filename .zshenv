@@ -28,7 +28,7 @@ export GNUTERM=x11
 
 
 ### Go
-export GOPATH=$HOME/go
+export GOPATH=$HOME
 
 
 #
