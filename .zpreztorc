@@ -35,8 +35,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'syntax-highlighting' \
-  'prompt' \
-  'tmux'
+  'prompt'
 
 #
 # Editor
@@ -128,6 +127,6 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 # zstyle ':prezto:module:tmux:auto-start' mode shared
 
 # Auto start a session when Zsh is launched.
-zstyle ':prezto:module:tmux:auto-start' local 'no'
-zstyle ':prezto:module:tmux:auto-start' remote 'yes'
+# zstyle ':prezto:module:tmux:auto-start' local 'no'
+# zstyle ':prezto:module:tmux:auto-start' remote 'yes'
 
