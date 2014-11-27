@@ -17,9 +17,21 @@ alias ec="emacsclient -n -c -a ''"
 
 alias t='tmux'
 alias tl='tmux list-sessions'
-alias ta='tmux attach-session'
 alias tk='tmux kill-session -t'
 alias tmux_send_all='tmux list-windows | cut -d: -f1 | xargs -I\{\} tmux send-keys -t {} '
+function ta() {
+    tmux start-server
+
+    # Create a 'prezto' session if no session has been defined in tmux.conf.
+    if ! tmux has-session 2> /dev/null; then
+        tmux \
+            new-session -d -s prezto \; \
+            set-option -t prezto destroy-unattached off &> /dev/null
+    fi
+
+    tmux_session=`tmux list-sessions -F '#S' | head -n 1`
+    exec tmux new-session -t "$tmux_session"\; set-option destroy-unattached on
+}
 
 alias rza='source ~/.zshrc && rehash'
 alias gst="git status"
@@ -82,7 +94,5 @@ activate
 ## local config
 [[ -s "$HOME/.zshrc_local" ]] && source "$HOME/.zshrc_local"
 
-## aws
-source /usr/local/share/zsh/site-functions/_aws
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
