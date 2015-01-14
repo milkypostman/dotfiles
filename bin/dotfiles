@@ -83,7 +83,7 @@ _link() {
         echo "dryrun."
       fi
     fi
-    if [ ! -e $dstpath -a ! -L $dstpath  ]; then
+    if [ ! -e $dstpath ]; then
       echo -n "Linking ${dstpath} to ${srcpath}... "
       if ! $dryrun; then
         ln -s "${srcpath}" "${dstpath}"
@@ -91,6 +91,8 @@ _link() {
       else
         echo "dryrun."
       fi
+    elif [ ! -L $dstpath ]; then
+      echo "${dstpath} already exists and is not a link."
     fi
   done < <(git ls-files | grep -v .gitignore | grep -v .gitmodules | grep -v "^README")
 }
