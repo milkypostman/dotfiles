@@ -24,6 +24,10 @@ CMD:
 EOF
 }
 
+_basedir() {
+  echo ${basedir}
+}
+
 _existing() {
   while read; do
     declare dstpath=${destination}/${REPLY}
@@ -50,7 +54,7 @@ _unlink() {
     if [ -e $dstpath ]; then
       echo -n "Unlinking ${dstpath}... "
       if ! $dryrun; then
-	unlink "${dstpath}"
+        unlink "${dstpath}"
         echo "done."
       else
         echo "dryrun."
@@ -117,6 +121,9 @@ shift $((OPTIND-1))
 cmd=$1
 
 case $cmd in
+  basedir|cd)
+    _basedir
+    ;;
   existing|e)
     _existing
     ;;
