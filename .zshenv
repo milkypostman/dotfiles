@@ -86,13 +86,14 @@ unset path_file
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+    $HOME/bin
+    $HOME/{.cabal,.lein}/bin
     $GOPATH/bin
+    /usr/local/haskell/ghc-7.8.3-x86_64/bin
     /usr/local/go/bin
     /usr/local/{bin,sbin}
     /usr/{bin,sbin}
     /{bin,sbin}
-    $HOME/bin
-    $HOME/{.cabal,.lein}/bin
     $path
 )
 
