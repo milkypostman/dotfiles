@@ -1,6 +1,5 @@
 # Update environment variables in tmux.
 
-local tmux=$(type -fp tmux)
 case "$1" in
     update-environment|update-env|env-update)
         local v
@@ -16,6 +15,6 @@ case "$1" in
         done < <(tmux show-environment)
         ;;
     *)
-        $tmux "$@"
+        tmux "$@"
         ;;
 esac
