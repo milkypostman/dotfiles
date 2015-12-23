@@ -91,6 +91,7 @@ path=(
     $GOPATH/bin
     /usr/local/emacs/bin
     /usr/local/haskell/ghc-7.8.3-x86_64/bin
+    /Library/TeX/texbin
     /usr/local/go/bin
     /usr/local/{bin,sbin}
     /usr/{bin,sbin}
