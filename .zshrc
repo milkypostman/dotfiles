@@ -15,6 +15,8 @@ alias e="emacsclient -n -a ''"
 alias et="emacsclient -t -a ''"
 alias ec="emacsclient -n -c -a ''"
 
+alias openscad="/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD"
+
 alias t='tmux'
 alias tl='tmux list-sessions'
 alias tk='tmux kill-session -t'
