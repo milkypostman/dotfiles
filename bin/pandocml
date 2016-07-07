@@ -1,4 +1,0 @@
-#!/bin/bash
-
-/Users/dcurtis/.cabal/bin/pandoc --mathjax -S $@
-
