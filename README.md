@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal dotfiles. Bootstrap/sync script written in [Python](http://python.org)
+Personal dotfiles. Bootstrap/sync script written in Bash.
 
 
 ## Installation
