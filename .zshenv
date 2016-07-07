@@ -86,6 +86,7 @@ unset path_file
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+    /usr/local/homebrew/bin
     $HOME/bin
     $HOME/{.cabal,.lein}/bin
     $GOPATH/bin
