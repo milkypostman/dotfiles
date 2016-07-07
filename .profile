@@ -1,5 +1,3 @@
-export EDITOR=vim
-export PATH=$HOME/.cabal/bin:$HOME/.lein/bin:$HOME/bin:$PATH
 export CLICOLOR=1
 
 #export LSCOLORS=dxfxcxdxbxegedabagacad

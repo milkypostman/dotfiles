@@ -10,11 +10,11 @@
 #-- shell setup
 case "$TERM" in
     xterm*|rxvt|rxvt-unicode|rxvt-256color)
-		PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*}: ${PWD/$HOME/~}\007"'
-		#PROMPT_COMMAND='echo -ne "\e]0;${HOSTNAME%%.*}: ${PWD/$HOME/~}\a"'
-		;;
-	*)
-		;;
+                PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*}: ${PWD/$HOME/~}\007"'
+                #PROMPT_COMMAND='echo -ne "\e]0;${HOSTNAME%%.*}: ${PWD/$HOME/~}\a"'
+                ;;
+        *)
+                ;;
 esac
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -24,6 +24,7 @@ HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
 
+EDITOR=vim
 PAGER=less
 
 
@@ -39,7 +40,6 @@ fi
 
 
 #-- aliases
-alias kablamo="lsq | cut -f6 | cut -d\  -f3-4 | cut -d_ -f1 | sort | uniq"
 alias l='ls -la'
 alias la='ls -A'
 alias ll='ls -l'
@@ -62,60 +62,16 @@ alias o='popd'
 # ssh enabling x11 support
 alias sshx11="ssh -o ForwardX11=yes"
 
-alias milano="cdssh milano"
-alias vinci="cdssh vinci"
-
-for i in {1..17}; do
-    alias m${i}="cdssh m${i}"
-done
-
 umask 0077
-
-sudo() {
-    local ORIGINAL_UMASK=$(umask)
-    umask 0022
-    command sudo "$@"
-    umask $ORIGINAL_UMASK
-}
-
 
 
 #-- functions
-
-# ssh to current
-cdssh () {
-    if [ -n ${1} ]; then
-        CWD=$(pwd|sed "s#$HOME#~#")
-        ssh -t $1 -- "cd ${CWD} ; bash -l"
-    fi
-}
 
 # find file
 ff () { find ./ -name '*'"$@"'*' ; }
 
 # recursive grep
 rgrep () { find ./ -exec grep -H "$@" {} \; ; }
-
-## enable rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-## pythonz
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
-
-## enable virtual python environment
-[[ -s $HOME/.virtualenv/default/bin/activate ]] && source $HOME/.virtualenv/default/bin/activate
-
-activate() {
-    VIRTUALENV_BASE="${HOME}/.virtualenv"
-    if [ $# -le 0 ]; then
-        set -- default
-    fi
-    echo ${VIRTUALENV_BASE}/$1
-    . ${VIRTUALENV_BASE}/$1/bin/activate
-}
-
-## pip
-export PIP_RESPECT_VIRTUALENV=true
 
 ## system-based
 [[ -s "$HOME/.bashrc_$(uname -s | tr '[A-Z]' '[a-z]')" ]] && \

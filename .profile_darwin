@@ -1,5 +1,0 @@
-#-- environment
-export EDITOR=editor_mvim
-export PYTHONPATH=$HOME/src/compepi:$HOME/src/networkx
-export CLASSPATH=$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar
-export NODEPATH=/usr/local/lib/node

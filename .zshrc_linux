@@ -1,12 +1,4 @@
 #-*- mode: sh -*-
 
-apt-get-undep() {
-    if [[ $# -lt 1 ]]; then
-        echo "requires argument"
-        return -1
-    fi
-    sudo aptitude markauto $(apt-cache showsrc ${1} | grep Build-Depends | perl -p -e 's/(?:[\[(].+?[\])]|Build-Depends:|,|\|)//g')
-}
-
 export EDITOR="emacsclient -t -a ''"
 export VISUAL="emacsclient -t -a ''"

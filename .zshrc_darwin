@@ -2,6 +2,3 @@
 
 ## environment
 export GIT_EDITOR="${HOME}/bin/editor_wrapper"
-
-
-alias blender="/Applications/Blender/blender.app/Contents/MacOS/blender"
