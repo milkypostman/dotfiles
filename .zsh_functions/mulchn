@@ -1,8 +1,0 @@
-### mulchn --- development setup for mulchn
-
-activate mulchn
-cd $HOME/src/mulchn
-export MULCHN_CONFIG=dev_config.py
-export DATABASE_URL="postgres://localhost/mulchn"
-
-

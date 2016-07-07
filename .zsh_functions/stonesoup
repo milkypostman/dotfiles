@@ -1,5 +1,0 @@
-### stonesoup --- development setup for mulchn
-
-activate stonesoup
-export DJANGO_SETTINGS_MODULE=stonesoup.development_settings
-cd $HOME/src/stonesoup
