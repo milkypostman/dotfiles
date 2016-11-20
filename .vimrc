@@ -14,24 +14,38 @@
 " Last_Chance
 "
 
-"" Load_Pathogen
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" select the plugins we want enabled or disabled.
-" WARNING: don't enable both neocomplcache and supertab, gets messy
-let g:pathogen_disabled = []
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" if curl is not available we must disable gist.
-if !executable('curl')
-  let g:pathogen_disabled += ["gist-vim"]
-endif
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-" if this is not a gui then don't even bother with CSApprox
-if !has("gui")
-  let g:pathogen_disabled += ["csapprox"]
-endif
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+"Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Install L9 and avoid a Naming conflict if you've already installed a
+" different version somewhere else.
+"Plugin 'ascenator/L9', {'name': 'newL9'}
 
-" init pathogen shit
-"call pathogen#infect()
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 
 """ Global_Settings
@@ -152,21 +166,6 @@ endif
 
 
 
-""" Plugin_Settings
-
-" align 
-" don't load align bindings (too many!)
-let g:loaded_AlignMapsPlugin = "v41"
-
-
-"" taglist
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-let Tlist_Sort_Type="name"
-let Tlist_Compact_Format=1
-let Tlist_Exit_OnlyWindow=1
-map <C-F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-
 """ Mappings
 
 "" toggle folding with space
@@ -174,9 +173,6 @@ nnoremap <space> :
 
 "" quick disable of highlighting, until I search again
 nnoremap <silent> <leader>/ :nohl<CR>
-
-"" change to current directory
-"nmap <leader>cd :cd %:p:h<CR>
 
 "" make mapping
 map <leader>m :wa<CR>:make<CR>
@@ -197,7 +193,6 @@ nmap <silent> <leader>va :keepalt vsp<Bar>b#<CR>
 nmap <silent> <C-w><C-^> :vsplit #<CR>
 
 "Araxia_: milkpost_: i use this mapping, myself: map <Leader><CR> 0"ty$:<C-r>t<CR>:echo "Executed: " . @t<CR>
-
 
 
 """ Abbreviations
