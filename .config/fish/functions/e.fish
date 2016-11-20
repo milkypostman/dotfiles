@@ -1,3 +1,3 @@
 function e
-	emacsclient -n -a ''
+	emacsclient -n -a '' $argv
 end
