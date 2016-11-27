@@ -1,8 +1,9 @@
 #!/bin/bash
 
-cd $(dirname $(readlink "$0" || echo $0))/..
-basedir=$(pwd -L)
-
+startdir=$(pwd -L)
+cd $(dirname $(readlink "$0" || echo $0))
+basedir=$(git rev-parse --show-toplevel)
+cd $basedir
 
 declare destination=${HOME}
 declare dryrun=false
@@ -45,6 +46,45 @@ _unlink_subdirs() {
     _unlink $(basename ${subdir})
     cd ${basedir}
   done < <(find ${basedir} -mindepth 2 -maxdepth 2 -name .git)
+}
+
+_absdir() {
+    (
+    cd $(dirname $1)         # or  cd ${1%/*}
+    echo $PWD/$(basename $1) # or  echo $PWD/${1##*/}
+    )
+}
+
+_add() {
+    (
+    pushd $startdir >/dev/null
+  if [[ $# -lt 2 ]]; then
+    echo "usage: add <filename>"
+    return
+  fi
+  declare relpath=$(_absdir $(readlink "$2" || echo "$2"))
+  if [[ $relpath != ${HOME}* ]]; then 
+      echo "$relpath doesn't start with $HOME"
+      return
+  fi
+  if [[ $relpath == ${basedir}* ]]; then
+      echo "$relpath already in $basedir"
+      return
+    fi
+  declare relpath=${relpath#${HOME}}
+  declare fn=$(basename $2)
+  declare dst="${basedir}${relpath}"
+  echo "mkdir -p $(dirname ${dst})"
+  mkdir -p $(dirname ${dst})
+  echo "mv ${HOME}${relpath} ${dst}"
+  mv ${HOME}${relpath} ${dst}
+    popd >/dev/null
+  echo "git add ${dst}"
+  git add ${dst}
+  echo "git commit -m 'add $relpath to dotfiles'"
+  git commit -m 'add $relpath to dotfiles'
+    _link
+  )
 }
 
 _unlink() {
@@ -123,6 +163,9 @@ cmd=$1
 case $cmd in
   basedir|cd)
     _basedir
+    ;;
+  add|a)
+    _add $@
     ;;
   existing|e)
     _existing
