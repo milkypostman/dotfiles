@@ -1,2 +1,10 @@
-set PATH $HOME/bin /usr/local/homebrew/bin $PATH
+function maybe_prepend_paths
+    for p in $argv[-1..1]
+        if not contains -- $p $PATH
+            set PATH $p $PATH
+        end
+    end
+end
+
+maybe_prepend_paths $HOME/bin /usr/local/homebrew/bin
 set -gx GOPATH $HOME
