@@ -8,3 +8,6 @@ end
 
 maybe_prepend_paths $HOME/bin /usr/local/homebrew/bin
 set -gx GOPATH $HOME
+
+abbr --add s ssh
+abbr --add rza exec fish
