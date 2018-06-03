@@ -11,3 +11,5 @@ set -gx GOPATH $HOME
 
 abbr --add s ssh
 abbr --add rza exec fish
+abbr --add gws git status
+abbr --add g git
