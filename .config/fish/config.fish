@@ -12,4 +12,7 @@ set -gx GOPATH $HOME
 abbr --add s ssh
 abbr --add rza exec fish
 abbr --add gws git status
+abbr --add dc docker-compose
 abbr --add g git
+abbr --add gl git log
+abbr --add gco git checkout
