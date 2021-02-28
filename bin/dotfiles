@@ -1,9 +1,10 @@
 #!/bin/bash
 
 startdir=$(pwd -L)
-cd $(dirname $(readlink "$0" || echo $0))
+ROOT=$(dirname $(readlink "$0" || echo "$0"))
+cd "$ROOT"
 basedir=$(git rev-parse --show-toplevel)
-cd $basedir
+cd "$basedir"
 
 declare destination=${HOME}
 declare dryrun=false
@@ -41,29 +42,29 @@ _existing() {
 
 _unlink_subdirs() {
   while read; do
-    declare subdir=$(dirname ${REPLY})
-    cd ${subdir}
-    _unlink $(basename ${subdir})
-    cd ${basedir}
-  done < <(find ${basedir} -mindepth 2 -maxdepth 2 -name .git)
+    declare subdir=$(dirname "${REPLY}")
+    cd "${subdir}"
+    _unlink "$(basename ${subdir})"
+    cd "${basedir}"
+  done < <(find "${basedir}" -mindepth 2 -maxdepth 2 -name .git)
 }
 
 _absdir() {
     (
-    cd $(dirname $1)         # or  cd ${1%/*}
-    echo $PWD/$(basename $1) # or  echo $PWD/${1##*/}
+    cd "$(dirname $1)"        # or  cd ${1%/*}
+    echo "$PWD/$(basename $1)" # or  echo $PWD/${1##*/}
     )
 }
 
 _add() {
     (
-    pushd $startdir >/dev/null
+    pushd "$startdir" >/dev/null
   if [[ $# -lt 2 ]]; then
     echo "usage: add <filename>"
     return
   fi
   declare relpath=$(_absdir $(readlink "$2" || echo "$2"))
-  if [[ $relpath != ${HOME}* ]]; then 
+  if [[ $relpath != ${HOME}* ]]; then
       echo "$relpath doesn't start with $HOME"
       return
   fi
@@ -75,12 +76,12 @@ _add() {
   declare fn=$(basename $2)
   declare dst="${basedir}${relpath}"
   echo "mkdir -p $(dirname ${dst})"
-  mkdir -p $(dirname ${dst})
+  mkdir -p "$(dirname ${dst})"
   echo "mv ${HOME}${relpath} ${dst}"
-  mv ${HOME}${relpath} ${dst}
+  mv "${HOME}${relpath}" "${dst}"
     popd >/dev/null
   echo "git add ${dst}"
-  git add ${dst}
+  git add "${dst}"
   echo "git commit -m 'add $relpath to dotfiles'"
   git commit -m 'add $relpath to dotfiles'
     _link
@@ -104,24 +105,27 @@ _unlink() {
 }
 
 _link_subdirs() {
+  echo "_link_subdirs"
   while read; do
-    declare subdir=$(dirname ${REPLY})
-    cd ${subdir}
-    _link $(basename ${subdir})
-    cd ${basedir}
-  done < <(find ${basedir} -mindepth 2 -maxdepth 2 -name .git)
+    declare subdir=$(dirname "${REPLY}")
+    cd "${subdir}"
+    declare subdir_basename=$(basename "${subdir}")
+    echo "*******************: ${subdir_basename}"
+    _link "${subdir_basename}"
+    cd "${basedir}"
+  done < <(find "${basedir}" -mindepth 2 -maxdepth 2 -name .git)
 }
 
 _link() {
   declare pfx=$1
   while read; do
-    declare dstpath=$(echo ${destination}/${pfx}/${REPLY} | sed s#//*#/#g)
+    declare dstpath=$(echo "${destination}/${pfx}/${REPLY}" | sed s#//*#/#g)
     declare srcpath=$(pwd -L)/${REPLY}
-    declare dstdir=$(dirname ${dstpath})
-    if [ ! -e $dstdir ]; then
+    declare dstdir=$(dirname "${dstpath}")
+    if [ ! -e "$dstdir" ]; then
       echo -n "Creating directory ${dstdir}... "
-      if ! $dryrun; then
-        mkdir -p ${dstdir}
+      if ! "$dryrun"; then
+        mkdir -p "${dstdir}"
         echo "done."
       else
         echo "dryrun."
@@ -129,7 +133,7 @@ _link() {
     fi
     if [ ! -e $dstpath ]; then
       echo -n "Linking ${dstpath} to ${srcpath}... "
-      if ! $dryrun; then
+      if ! "$dryrun"; then
         ln -s "${srcpath}" "${dstpath}"
         echo "done."
       else
@@ -177,6 +181,6 @@ case $cmd in
   link|l|*)
     _link
     _link_subdirs
-    cd ${basedir}
+    cd "${basedir}"
     ;;
 esac
