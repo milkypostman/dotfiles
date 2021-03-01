@@ -44,7 +44,8 @@ _unlink_subdirs() {
   while read; do
     declare subdir=$(dirname "${REPLY}")
     cd "${subdir}"
-    _unlink "$(basename ${subdir})"
+    declare subdir_basename=$(basename ${subdir})
+    _unlink "$subdir_basename"
     cd "${basedir}"
   done < <(find "${basedir}" -mindepth 2 -maxdepth 2 -name .git)
 }
@@ -105,12 +106,10 @@ _unlink() {
 }
 
 _link_subdirs() {
-  echo "_link_subdirs"
   while read; do
     declare subdir=$(dirname "${REPLY}")
     cd "${subdir}"
     declare subdir_basename=$(basename "${subdir}")
-    echo "*******************: ${subdir_basename}"
     _link "${subdir_basename}"
     cd "${basedir}"
   done < <(find "${basedir}" -mindepth 2 -maxdepth 2 -name .git)
