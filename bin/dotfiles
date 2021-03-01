@@ -44,7 +44,8 @@ _unlink_subdirs() {
   while read; do
     declare subdir=$(dirname "${REPLY}")
     cd "${subdir}"
-    declare subdir_basename=$(basename ${subdir})
+    declare subdir_basename=$(basename "${subdir}")
+    echo "$subdir_basename"
     _unlink "$subdir_basename"
     cd "${basedir}"
   done < <(find "${basedir}" -mindepth 2 -maxdepth 2 -name .git)
@@ -74,7 +75,7 @@ _add() {
       return
     fi
   declare relpath=${relpath#${HOME}}
-  declare fn=$(basename $2)
+  declare fn=$(basename "$2")
   declare dst="${basedir}${relpath}"
   echo "mkdir -p $(dirname ${dst})"
   mkdir -p "$(dirname ${dst})"
