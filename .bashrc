@@ -6,6 +6,10 @@
 # sourced by all interactive shells
 # host/system specific stuff should go into .bashrc_*
 #--
+WHICH_FISH=$(which fish)
+if [[ -n "$WHICH_FISH" && "$SHELL" != "$WHICH_FISH" ]]; then
+    exec env SHELL="$WHICH_FISH" $WHICH_FISH
+fi
 
 #-- shell setup
 case "$TERM" in
